@@ -7,7 +7,20 @@
       mc:Ignorable="d" 
       d:DesignHeight="630" d:DesignWidth="1200"
       Title="MyAccountView">
+    <Page.Resources>
+        <Style TargetType="Label"><!--{x:Type Label}-->
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalContentAlignment" Value="Right"/>
+        </Style>
 
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Margin" Value="10,0"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+    </Page.Resources>
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="70"/>
@@ -22,7 +35,7 @@
         
         <!--제목입력 시작-->
         <Label Grid.Row="0"  Content="계정정보" Grid.Column="1" FontSize="30" FontWeight="ExtraBold"
-               VerticalContentAlignment="Bottom"/>
+               VerticalContentAlignment="Bottom" HorizontalContentAlignment="Left"/>
         <!--제목입력 끝-->
         
         <!--버튼영역시작-->
@@ -54,13 +67,21 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <Label Grid.Row="0" Grid.Column="0" Content="순번" FontSize="14" FontWeight="Bold" VerticalContentAlignment="Center"/>
-            <Label Grid.Row="1" Grid.Column="0" Content="사번" FontSize="14" FontWeight="Bold" VerticalContentAlignment="Center"/>
-            <Label Grid.Row="2" Grid.Column="0" Content="성" FontSize="14" FontWeight="Bold" VerticalContentAlignment="Center"/>
-            <Label Grid.Row="3" Grid.Column="0" Content="이름" FontSize="14" FontWeight="Bold" VerticalContentAlignment="Center"/>
-            <Label Grid.Row="4" Grid.Column="0" Content="이메일" FontSize="14" FontWeight="Bold" VerticalContentAlignment="Center"/>
-            <Label Grid.Row="5" Grid.Column="0" Content="관리자여부" FontSize="14" FontWeight="Bold" VerticalContentAlignment="Center"/>
-            <Label Grid.Row="6" Grid.Column="0" Content="활성여부" FontSize="14" FontWeight="Bold" VerticalContentAlignment="Center"/>
+            <Label Grid.Row="0" Grid.Column="0" Content="순번" />
+            <Label Grid.Row="1" Grid.Column="0" Content="사번"/>
+            <Label Grid.Row="2" Grid.Column="0" Content="성" />
+            <Label Grid.Row="3" Grid.Column="0" Content="이름" />
+            <Label Grid.Row="4" Grid.Column="0" Content="이메일" />
+            <Label Grid.Row="5" Grid.Column="0" Content="관리자여부" />
+            <Label Grid.Row="6" Grid.Column="0" Content="활성여부" />
+
+            <TextBlock Grid.Row="0" Grid.Column="1" x:Name="TxtUserId" Text="UserId"/>
+            <TextBlock Grid.Row="1" Grid.Column="1" x:Name="TxtUserIdentityNumber" Text="IdentityNumber"/>
+            <TextBlock Grid.Row="2" Grid.Column="1" x:Name="TxtUserSurName" Text="UserSurName"/>
+            <TextBlock Grid.Row="3" Grid.Column="1" x:Name="TxtUserName" Text="UserName"/>
+            <TextBlock Grid.Row="4" Grid.Column="1" x:Name="TxtUserEmail" Text="UserEmail"/>
+            <TextBlock Grid.Row="5" Grid.Column="1" x:Name="TxtUserAdmin" Text="UserAdmin"/>
+            <TextBlock Grid.Row="6" Grid.Column="1" x:Name="TxtUserActivated" Text="UserActivated"/>
         </Grid>
         <!--컨텐츠영역 끝-->
     </Grid>
