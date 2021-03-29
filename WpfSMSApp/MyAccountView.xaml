@@ -40,7 +40,7 @@
         
         <!--버튼영역시작-->
         <StackPanel Grid.Row="0" Grid.Column="2" Grid.RowSpan="2">
-            <Button x:Name="BtnTemp" 
+            <Button x:Name="BtnEditMyAccount" Click="BtnEditMyAccount_Click"
                     FontSize="14"
                     Background="DarkSlateBlue" Foreground="White"
                     Content="계정정보 수정" Height="50" Margin="5,10">

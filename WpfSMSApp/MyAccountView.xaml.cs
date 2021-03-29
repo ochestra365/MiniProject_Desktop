@@ -25,7 +25,7 @@ namespace WpfSMSApp
             InitializeComponent();
         }
 
-        private void Page_Loaded(object sender, RoutedEventArgs e)
+        private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -41,7 +41,13 @@ namespace WpfSMSApp
             catch (Exception ex)
             {
                 Commons.LOGGER.Error($"예외발생 MyAccount Loaded: {ex}");
+                throw ex;
             }
+        }
+
+        private void BtnEditMyAccount_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }
