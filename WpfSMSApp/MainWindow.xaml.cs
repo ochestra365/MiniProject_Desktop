@@ -58,5 +58,18 @@ namespace WpfSMSApp
             view.ShowDialog();
             view.WindowStartupLocation = WindowStartupLocation.CenterOwner;
         }
+
+        private void BtnAccount_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                ActiveControl.Content = new MyAccountView();//이거 아닌데? MyAccount에서 시스템 자원 새로 할당하는 건데? 뭐지?
+            }
+            catch (Exception ex)
+            {
+
+                Commons.LOGGER.Error($"예외발생 BtnAccount_Click : {ex}");
+            }
+        }
     }
 }

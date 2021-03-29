@@ -24,5 +24,24 @@ namespace WpfSMSApp
         {
             InitializeComponent();
         }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var user = Commons.LOGINED_USER;
+                TxtUserId.Text = user.UserID.ToString();
+                TxtUserIdentityNumber.Text = user.UserIdentityNumber.ToString();
+                TxtUserSurName.Text = user.UserSurname.ToString();
+                TxtUserEmail.Text = user.UserEmail.ToString();
+                TxtUserName.Text = user.UserName.ToString();
+                TxtUserAdmin.Text = user.UserAdmin.ToString();
+                TxtUserActivated.Text = user.UserActivated.ToString();
+            }
+            catch (Exception ex)
+            {
+                Commons.LOGGER.Error($"예외발생 MyAccount Loaded: {ex}");
+            }
+        }
     }
 }

@@ -115,9 +115,9 @@
             </Button>
             <Button x:Name="BtnAccount" 
                     Grid.Column="6" 
-                    Content="주소" FontSize="14" 
+                    Content="계정" FontSize="14" 
                     Background="CornflowerBlue" Foreground="White" 
-                    Margin="5,10">
+                    Margin="5,10" Click="BtnAccount_Click">
                 <Button.ContentTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
