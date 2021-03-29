@@ -33,7 +33,10 @@ namespace WpfSMSApp.View
                 MessageDialogStyle.AffirmativeAndNegative, null);
 
             if (result == MessageDialogResult.Affirmative)
+            {
+                Commons.LOGGER.Info("프로그램 종료");
                 Application.Current.Shutdown();//프로그램 종료
+            }
         }
 
         private void MetroWindow_Loaded(object sender, RoutedEventArgs e)
