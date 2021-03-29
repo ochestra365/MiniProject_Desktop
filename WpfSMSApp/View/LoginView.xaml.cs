@@ -54,7 +54,7 @@ namespace WpfSMSApp.View
                 BtnLogin_Click(sender, e);//로그인 버튼 클릭.
         }
 
-        private void BtnLogin_Click(object sender, RoutedEventArgs e)
+        private async void BtnLogin_Click(object sender, RoutedEventArgs e)
         {
             LblResult.Visibility = Visibility.Hidden;//결과 레이블은 숨겨둔다.
 
@@ -71,7 +71,8 @@ namespace WpfSMSApp.View
                 var email = TxtUserEmail.Text;
                 var password = TxtPassword.Password;
                 var isOurUser = Logic.DataAccess.GetUsesr()
-                    .Where(u => u.UserEmail.Equals(email) && u.UserPassword.Equals(password)).Count();
+                    .Where(u => u.UserEmail.Equals(email) && u.UserPassword.Equals(password)&&
+                    u.UserActivated==true).Count();
 
                 if(isOurUser==0)
                 {
@@ -89,7 +90,9 @@ namespace WpfSMSApp.View
             }
             catch (Exception ex)
             {
+                //예외처리
                 Commons.LOGGER.Error($"예외발생:{ex}");
+                await this.ShowMessageAsync("예외", $"예외발생: {ex}");
             }
         }
     }
