@@ -3,6 +3,7 @@ using MahApps.Metro.Controls.Dialogs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -35,7 +36,7 @@ namespace WpfSMSApp.View
             if (result == MessageDialogResult.Affirmative)
             {
                 Commons.LOGGER.Info("프로그램 종료");
-                Application.Current.Shutdown();//프로그램 종료
+                Application.Current.Shutdown();//프로그램 종료(앱의 현재상태를 종료해준다.)
             }
         }
 
@@ -73,6 +74,10 @@ namespace WpfSMSApp.View
             {
                 var email = TxtUserEmail.Text;
                 var password = TxtPassword.Password;
+
+                var mdHash = MD5.Create();
+                password = Commons.GetMd5Hash(mdHash, password);
+
                 var isOurUser = Logic.DataAccess.GetUsesr()
                     .Where(u => u.UserEmail.Equals(email) && u.UserPassword.Equals(password)&&
                     u.UserActivated==true).Count();

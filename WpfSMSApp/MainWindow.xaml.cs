@@ -41,6 +41,7 @@ namespace WpfSMSApp
 
         private async void BtnLogOut_Click(object sender, RoutedEventArgs e)
         {
+            //TODO : 모든 화면을 해제하고 첫 화면으로 돌려놓아야 한다.
             var result = await this.ShowMessageAsync("로그아웃", "로그아웃하시겠습니까?",
                 MessageDialogStyle.AffirmativeAndNegative,null);
 
@@ -63,7 +64,8 @@ namespace WpfSMSApp
         {
             try
             {
-                ActiveControl.Content = new MyAccountView();//이거 아닌데? MyAccount에서 시스템 자원 새로 할당하는 건데? 뭐지?
+                ActiveControl.Content = new Account.MyAccountView();//이거 아닌데? MyAccount에서 시스템 자원 새로 할당하는 건데? 뭐지? // 답은 내가 View의 Account에서 생성하지 않고 프로젝트 영역에 cs를 생성해서 그렇다.
+                //사소한 실수가 네임스페이스를 다 꼬이게 만들 수 있어..
             }
             catch (Exception ex)
             {
