@@ -49,7 +49,7 @@ namespace WpfSMSApp.Account
                 TxtUserSurName.Text = user.UserSurname.ToString();
                 TxtUserEmail.Text = user.UserEmail.ToString();
                 TxtUserName.Text = user.UserName.ToString();
-                TxtUserPasword.Password = user.UserPassword;
+                //TxtUserPasword.Password = user.UserPassword; 오류가 발생하기 때문에 제거함.
                 CboUserAdmin.SelectedIndex = user.UserAdmin == false ? 0 : 1;
                 CboUserActivated.SelectedIndex = user.UserActivated == false ? 0 : 1;
             }

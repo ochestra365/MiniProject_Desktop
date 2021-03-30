@@ -183,6 +183,9 @@
     <Compile Include="View\Account\EditAccount.xaml.cs">
       <DependentUpon>EditAccount.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\User\UserList.xaml.cs">
+      <DependentUpon>UserList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Account\MyAccountView.xaml.cs">
       <DependentUpon>MyAccountView.xaml</DependentUpon>
     </Compile>
@@ -203,6 +206,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\Account\EditAccount.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\User\UserList.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

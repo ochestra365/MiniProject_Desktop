@@ -103,7 +103,7 @@
                     Grid.Column="5" 
                     Content="사용자" FontSize="14" 
                     Background="DarkBlue" Foreground="White" 
-                    Margin="5,10">
+                    Margin="5,10" Click="BtnUser_Click">
                 <Button.ContentTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -142,7 +142,7 @@
                 </Button.ContentTemplate>
             </Button>
         </Grid>
-        <Grid Background="WhiteSmoke">
+        <Grid >
             <Frame x:Name="ActiveControl"/><!--화면 전환-->
         </Grid>
     </DockPanel>
