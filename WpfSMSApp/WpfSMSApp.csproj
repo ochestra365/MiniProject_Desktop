@@ -180,6 +180,12 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Logic\DataAccess.cs" />
+    <Compile Include="View\User\DeactivaUser.xaml.cs">
+      <DependentUpon>DeactivaUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\User\EditUser.xaml.cs">
+      <DependentUpon>EditUser.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\User\AddUser.xaml.cs">
       <DependentUpon>AddUser.xaml</DependentUpon>
     </Compile>
@@ -208,6 +214,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\User\DeactivaUser.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\User\EditUser.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\User\AddUser.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

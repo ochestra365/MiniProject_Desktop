@@ -56,7 +56,7 @@
                     Content="사용자 비활성화" Height="50" Margin="5,5">
             </Button>
             <Button x:Name="BtnExportPdf" Click="BtnExportPdf_Click"
-                    FontSize="14"
+                    FontSize="14" 
                     Background="Silver" Foreground="Black"
                     Content="PDF Export" Height="50" Margin="5,5">
             </Button>

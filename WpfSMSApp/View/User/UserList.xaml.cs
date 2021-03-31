@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using WpfSMSApp.View;
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
+using Microsoft.Win32;
 
 namespace WpfSMSApp.View.User
 {
@@ -71,17 +72,36 @@ namespace WpfSMSApp.View.User
 
         private void BtnEditUser_Click(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                NavigationService.Navigate(new EditUser());//using System.Windows.Navigation;
+            }
+            catch (Exception ex)
+            {
+                Commons.LOGGER.Error($"예외발생 BtnEditUser_Click : {ex}");
+                throw ex;
+            }
         }
 
         private void BtnDeactivateUser_Click(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                NavigationService.Navigate(new DeactivaUser());//using System.Windows.Navigation;
+            }
+            catch (Exception ex)
+            {
+                Commons.LOGGER.Error($"예외발생 BtnEditUser_Click : {ex}");
+                throw ex;
+            }
         }
 
         private void BtnExportPdf_Click(object sender, RoutedEventArgs e)
         {
-
+            SaveFileDialog saveDialog = new SaveFileDialog();
+            saveDialog.Filter = "PDF File(*.pdf)|*.pdf";
+            saveDialog.FileName = "";
+            saveDialog.ShowDialog();
         }
 
         private void RdoAll_Checked(object sender, RoutedEventArgs e)
@@ -139,6 +159,11 @@ namespace WpfSMSApp.View.User
             {
                 Commons.LOGGER.Error($"예외발생 : {ex}");
             }
+        }
+
+        private void BtnExportPdf_Click_1(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
