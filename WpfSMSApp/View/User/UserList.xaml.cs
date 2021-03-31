@@ -16,6 +16,8 @@ using WpfSMSApp.View;
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using Microsoft.Win32;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 
 namespace WpfSMSApp.View.User
 {
@@ -102,6 +104,24 @@ namespace WpfSMSApp.View.User
             saveDialog.Filter = "PDF File(*.pdf)|*.pdf";
             saveDialog.FileName = "";
             saveDialog.ShowDialog();
+            //위에는 저장하는 파트
+            if (saveDialog.ShowDialog() == true)
+            {
+                //pdf변환
+                try
+                {
+                    iTextSharp.text.Font font = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 12);
+                    string pdfFilePath = saveDialog.FileName;
+                    
+                    Document pdfDoc =new Document(PageSize.A4);
+
+                    PdfPTable pdfTable = new PdfPTable(GrdData.Columns.Count);
+                }
+                catch (Exception ex)
+                {
+                    Commons.LOGGER.Error($"예외발생 BtnExportPdf_Click: {ex}");
+                }
+            } 
         }
 
         private void RdoAll_Checked(object sender, RoutedEventArgs e)
