@@ -32,18 +32,11 @@ namespace WpfSMSApp.View.User
         {
             try
             {
-                var user = Commons.LOGINED_USER;
-               /* TxtUserId.Text = user.UserID.ToString();
-                TxtUserIdentityNumber.Text = user.UserIdentityNumber.ToString();
-                TxtUserSurName.Text = user.UserSurname.ToString();
-                TxtUserEmail.Text = user.UserEmail.ToString();
-                TxtUserName.Text = user.UserName.ToString();
-                TxtUserAdmin.Text = user.UserAdmin.ToString();
-                TxtUserActivated.Text = user.UserActivated.ToString();*/
+                RdoAll.IsChecked = true;
             }
             catch (Exception ex)
             {
-                Commons.LOGGER.Error($"예외발생 MyAccount Loaded: {ex}");
+                Commons.LOGGER.Error($"예외발생 UserList Loaded: {ex}");
                 throw ex;
             }
         }
@@ -52,7 +45,7 @@ namespace WpfSMSApp.View.User
         {
             try
             {
-                NavigationService.Navigate(new EditAccount());//이거 아닌데? MyAccount에서 시스템 자원 새로 할당하는 건데? 뭐지? // 답은 내가 View의 Account에서 생성하지 않고 프로젝트 영역에 cs를 생성해서 그렇다.
+                NavigationService.Navigate(new UserList());//이거 아닌데? MyAccount에서 시스템 자원 새로 할당하는 건데? 뭐지? // 답은 내가 View의 Account에서 생성하지 않고 프로젝트 영역에 cs를 생성해서 그렇다.
                 //사소한 실수가 네임스페이스를 다 꼬이게 만들 수 있어..
             }
             catch (Exception ex)
@@ -64,7 +57,16 @@ namespace WpfSMSApp.View.User
 
         private void BtnAddUser_Click(object sender, RoutedEventArgs e)
         {
-
+            
+            try
+            {
+                NavigationService.Navigate(new AddUser());
+            }
+            catch (Exception ex)
+            {
+                Commons.LOGGER.Error($"예외발생 BtnAddUser_Click : {ex}");
+                throw ex;
+            }
         }
 
         private void BtnEditUser_Click(object sender, RoutedEventArgs e)
@@ -78,6 +80,35 @@ namespace WpfSMSApp.View.User
         }
 
         private void BtnExportPdf_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void RdoAll_Checked(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                List<WpfSMSApp.Model.User> users = new List<Model.User>();//네임스페이스의 충돌이 발생해서 그렇다. 개발하다 보니 어쩔 수 없는 것이다. 그래서 개발자가 여기는 따로 경로를 설정해줘야 한다.
+
+                if (RdoAll.IsChecked==true)
+                {
+                    users = Logic.DataAccess.GetUsesr();
+                }
+
+                this.DataContext = users;
+            }
+            catch (Exception ex)
+            {
+                Commons.LOGGER.Error($"예외발생 : {ex}");
+            }
+        }
+
+        private void RdoActive_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void RdoDeactive_Checked(object sender, RoutedEventArgs e)
         {
 
         }

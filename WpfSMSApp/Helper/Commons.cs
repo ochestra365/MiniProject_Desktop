@@ -1,6 +1,8 @@
 ﻿using NLog;
+using System;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 using WpfSMSApp.Model;
 
 namespace WpfSMSApp
@@ -14,6 +16,12 @@ namespace WpfSMSApp
         public static User LOGINED_USER;
 
         //암호화 해줘서 관리자도 볼 수 없게 하는 것이다.
+        /// <summary>
+        /// mt5 암호화 처리 메서드
+        /// </summary>
+        /// <param name="md5Hash"></param>
+        /// <param name="plainStr"></param>
+        /// <returns></returns>
         public static string GetMd5Hash(MD5 md5Hash, string plainStr)
         {
             byte[] data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(plainStr));
@@ -24,6 +32,15 @@ namespace WpfSMSApp
             }
 
             return builder.ToString();
+        }
+        /// <summary>
+        /// 이메일 정규식 확인 메서드
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
+        internal static bool IsValidEmail(string email)
+        {
+            return Regex.IsMatch(email, @"[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?");
         }
     }
 }
