@@ -24,7 +24,7 @@ namespace WpfSMSApp
         /// <returns></returns>
         public static string GetMd5Hash(MD5 md5Hash, string plainStr)
         {
-            byte[] data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(plainStr));
+            byte[] data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(plainStr));//using System.Security.Cryptography;
             StringBuilder builder = new StringBuilder();
             for (int i = 0; i < data.Length; i++)
             {
@@ -38,7 +38,7 @@ namespace WpfSMSApp
         /// </summary>
         /// <param name="email"></param>
         /// <returns></returns>
-        internal static bool IsValidEmail(string email)
+        internal static bool IsValidEmail(string email)//using System.Text.RegularExpressions; 정규식
         {
             return Regex.IsMatch(email, @"[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?");
         }

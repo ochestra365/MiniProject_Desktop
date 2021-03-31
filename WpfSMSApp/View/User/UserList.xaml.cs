@@ -105,12 +105,40 @@ namespace WpfSMSApp.View.User
 
         private void RdoActive_Checked(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                List<WpfSMSApp.Model.User> users = new List<Model.User>();//네임스페이스의 충돌이 발생해서 그렇다. 개발하다 보니 어쩔 수 없는 것이다. 그래서 개발자가 여기는 따로 경로를 설정해줘야 한다.
 
+                if (RdoActive.IsChecked == true)
+                {
+                    users = Logic.DataAccess.GetUsesr().Where(u => u.UserActivated == true).ToList();
+                }
+
+                this.DataContext = users;
+            }
+            catch (Exception ex)
+            {
+                Commons.LOGGER.Error($"예외발생 : {ex}");
+            }
         }
 
         private void RdoDeactive_Checked(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                List<WpfSMSApp.Model.User> users = new List<Model.User>();//네임스페이스의 충돌이 발생해서 그렇다. 개발하다 보니 어쩔 수 없는 것이다. 그래서 개발자가 여기는 따로 경로를 설정해줘야 한다.
 
+                if (RdoDeactive.IsChecked == true)
+                {
+                    users = Logic.DataAccess.GetUsesr().Where(u => u.UserActivated == false).ToList();
+                }
+
+                this.DataContext = users;
+            }
+            catch (Exception ex)
+            {
+                Commons.LOGGER.Error($"예외발생 : {ex}");
+            }
         }
     }
 }

@@ -137,8 +137,8 @@ namespace WpfSMSApp.View.User
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
             bool isvalid = true;
-            LblUserIdentityNumber.Visibility = LblUserSurName.Visibility = LblUserName.Visibility = LblUserEmail.Visibility = LblUserPassword.Visibility = LblUserAdmin.Visibility = LblUserActivated.Visibility = Visibility.Hidden;
-            var user = new Model.User();
+            LblUserIdentityNumber.Visibility = LblUserSurName.Visibility = LblUserName.Visibility = LblUserEmail.Visibility = LblUserPassword.Visibility = LblUserAdmin.Visibility = LblUserActivated.Visibility = Visibility.Hidden;//화면에 뜬 값들을 숨겨준다.
+            var user = new Model.User();// user는 DB모델의 사용자 목록들을 가져오겠따.
             isvalid= IsValidInput();
             if (isvalid)
             {
@@ -148,7 +148,7 @@ namespace WpfSMSApp.View.User
                 user.UserName = TxtUserName.Text;
                 user.UserEmail = TxtUserEmail.Text;
                 user.UserPassword = TxtUserPasword.Password;
-                user.UserAdmin = bool.Parse(CboUserAdmin.SelectedValue.ToString());
+                user.UserAdmin = bool.Parse(CboUserAdmin.SelectedValue.ToString());//데이터 베이스의 관리자 컨트롤에서 선택된 값이 관리자가 맞는 지, 그리고 데이터타입을 문자열로 보냈는 지 분석을 하고 참이면 그 값을 가져와라.
                 user.UserActivated = bool.Parse(CboUserActivated.SelectedValue.ToString());
 
                 try
@@ -166,9 +166,7 @@ namespace WpfSMSApp.View.User
                     else
                     {
                         //정상적 수정됨
-                        NavigationService.GoBack();
-                     /*  LblResult.Text = "정상적으로 수정했습니다.";
-                        LblResult.Foreground = Brushes.DeepSkyBlue;*/
+                        NavigationService.Navigate(new UserList());
                     }
                 }
                 catch (Exception ex)//페이지는 메트로 인트로가 아니기 때문에 메시지 박스가 발생하지 않는다.
