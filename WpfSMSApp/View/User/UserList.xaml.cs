@@ -6,18 +6,17 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 using WpfSMSApp.View;
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using Microsoft.Win32;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
+using System.IO;
 
 namespace WpfSMSApp.View.User
 {
@@ -115,7 +114,26 @@ namespace WpfSMSApp.View.User
                     
                     Document pdfDoc =new Document(PageSize.A4);
 
+                    // 1. pdf 객체생성시작
                     PdfPTable pdfTable = new PdfPTable(GrdData.Columns.Count);
+
+                    // 2. pdf 내용 만들기
+                    string nanumttf = Path.Combine(Environment.GetEnvironmentVariable("SystemRoot"), @"Fonts\NanumGothic.ttf");
+                    BaseFont nanumBase = BaseFont.CreateFont(nanumttf, BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
+                    var nanumFont = new iTextSharp.text.Font(nanumBase, 16f);//한글로 안나오는데에 대해서 하는 거임
+
+                    Paragraph title = new Paragraph($"PKNU Stock Management System: { DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}");//using문 중 모호한 참조가 있다면 지워줘야 한다.
+
+                    // 3. pdf 파일생성
+                    using(FileStream stream = new FileStream(pdfFilePath, FileMode.OpenOrCreate))
+                    {
+                        PdfWriter.GetInstance(pdfDoc, stream);
+                        pdfDoc.Open();
+                        // 2번에서 만든 내용을 추가한다.
+
+                        pdfDoc.Close();
+                        stream.Close();//option
+                    }
                 }
                 catch (Exception ex)
                 {
