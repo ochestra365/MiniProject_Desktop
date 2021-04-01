@@ -364,6 +364,7 @@
       <DependentUpon>SMSModel.edmx</DependentUpon>
       <LastGenOutput>SMSModel.cs</LastGenOutput>
     </Content>
+    <Resource Include="WPF깃허브에 올릴 이미지 사진들\이미지 20210401001.png" />
     <Resource Include="WPF깃허브에 올릴 이미지 사진들\DB 화면.png" />
     <Resource Include="WPF깃허브에 올릴 이미지 사진들\PDF EXPORT.png" />
     <Resource Include="WPF깃허브에 올릴 이미지 사진들\계정정보수정.png" />
