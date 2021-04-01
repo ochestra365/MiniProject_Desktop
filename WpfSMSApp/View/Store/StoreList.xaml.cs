@@ -37,10 +37,26 @@ namespace WpfSMSApp.View.Store
                 //Store 테이블 데이터 읽어와야 함.
                 List<Model.Store> stores = new List<Model.Store>();
                 List<Model.StockStores> stockstores = new List<Model.StockStores>();
-                List<Model.Store> stocks = new List<Model.Store>();
-                stores = Logic.DataAccess.GetStores();
+                List<Model.Stock> stocks = new List<Model.Stock>();//여기서 실수함. 참조읽을 거를 잘못 함. 복붙하고 참조를 자꾸 잘못한다.
+                stores = Logic.DataAccess.GetStores();//수영 1
                 stocks = Logic.DataAccess.GetStocks();
-                this.DataContext = stores;
+
+                //stores 데이터를 stockStores로 복사
+                foreach (Model.Store item in stores)
+                {
+                    stockstores.Add(new Model.StockStores()
+                    {
+                        StoreID = item.StoreID,
+                        StoreName = item.StoreName,
+                        StoreLocation = item.StoreLocation,
+                        ItemStatus = item.ItemStatus,
+                        TagID = item.TagID,
+                        BarcodeID = item.BarcodeID,
+                        StocksQuantity = 0
+                    }); ;
+                }
+
+                this.DataContext = stockstores;
             }
             catch (Exception ex)
             {
@@ -169,7 +185,14 @@ namespace WpfSMSApp.View.Store
 
         private void BtnAddStore_Click(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                NavigationService.Navigate(new StoreList());
+            }
+            catch (Exception ex)
+            {
+                Commons.LOGGER.Error($"예외 발생  BtnAddStore_Click : {ex}");
+            }
         }
 
         private void BtnEditStore_Click(object sender, RoutedEventArgs e)

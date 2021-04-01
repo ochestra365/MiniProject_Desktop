@@ -43,7 +43,7 @@
             <Button x:Name="BtnAddStore" Click="BtnAddStore_Click"
                     FontSize="14"
                     Background="DarkSlateBlue" Foreground="White"
-                    Content="창고 수정" Margin="5,10,5,5" Height="50" >
+                    Content="창고 추가" Margin="5,10,5,5" Height="50" >
                 <Button.ContentTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -85,7 +85,7 @@
                     <DataGridTextColumn Binding="{Binding StoreID}" Header="순번" Width="60" IsReadOnly="True"/>
                     <DataGridTextColumn Binding="{Binding StoreName}" Header="창고명" Width="*"  IsReadOnly="True"/>
                     <DataGridTextColumn Binding="{Binding StoreLocation}" Header="창고위치" Width="*"  IsReadOnly="True"/>
-                    <DataGridTextColumn Binding="{Binding ItemStatus}" Header="재고 수량" Width="*"  IsReadOnly="True"/>
+                    <DataGridTextColumn Binding="{Binding StocksQuantity}" Header="재고 수량" Width="*"  IsReadOnly="True"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>
