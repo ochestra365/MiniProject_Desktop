@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfSMSApp.View;
+using WpfSMSApp.View.Store;
 using WpfSMSApp.View.User;
 
 namespace WpfSMSApp
@@ -79,6 +80,19 @@ namespace WpfSMSApp
             try
             {
                 ActiveControl.Content = new UserList();
+            }
+            catch (Exception ex)
+            {
+                Commons.LOGGER.Error($"예외발생 BtnAccount_Click : {ex}");
+                await this.ShowMessageAsync("예외", $"예외발생 : {ex}");
+            }
+        }
+
+        private async void BtnStore_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                ActiveControl.Content = new StoreList();
             }
             catch (Exception ex)
             {

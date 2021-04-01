@@ -186,6 +186,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Logic\DataAccess.cs" />
+    <Compile Include="Model\StockStores.cs" />
     <Compile Include="View\User\DeactivaUser.xaml.cs">
       <DependentUpon>DeactivaUser.xaml</DependentUpon>
     </Compile>
@@ -197,6 +198,9 @@
     </Compile>
     <Compile Include="View\Account\EditAccount.xaml.cs">
       <DependentUpon>EditAccount.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Store\StoreList.xaml.cs">
+      <DependentUpon>StoreList.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\User\UserList.xaml.cs">
       <DependentUpon>UserList.xaml</DependentUpon>
@@ -233,6 +237,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\Account\EditAccount.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Store\StoreList.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -356,6 +364,18 @@
       <DependentUpon>SMSModel.edmx</DependentUpon>
       <LastGenOutput>SMSModel.cs</LastGenOutput>
     </Content>
+    <Resource Include="WPF깃허브에 올릴 이미지 사진들\DB 화면.png" />
+    <Resource Include="WPF깃허브에 올릴 이미지 사진들\PDF EXPORT.png" />
+    <Resource Include="WPF깃허브에 올릴 이미지 사진들\계정정보수정.png" />
+    <Resource Include="WPF깃허브에 올릴 이미지 사진들\누겟패키지.png" />
+    <Resource Include="WPF깃허브에 올릴 이미지 사진들\로그인 실패.png" />
+    <Resource Include="WPF깃허브에 올릴 이미지 사진들\사용자리스트 .png" />
+    <Resource Include="WPF깃허브에 올릴 이미지 사진들\사용자리스트 추가.png" />
+    <Resource Include="WPF깃허브에 올릴 이미지 사진들\이미지 20210401007.png" />
+    <Resource Include="WPF깃허브에 올릴 이미지 사진들\접속.png" />
+    <Resource Include="WPF깃허브에 올릴 이미지 사진들\종료사진.png" />
+    <Resource Include="WPF깃허브에 올릴 이미지 사진들\현재 접속중인 계정정보.png" />
+    <Resource Include="WPF깃허브에 올릴 이미지 사진들\활성화면.png" />
     <Resource Include="Resources\stock.png" />
     <Resource Include="Resources\database2.png" />
     <Resource Include="Resources\database.png" />
