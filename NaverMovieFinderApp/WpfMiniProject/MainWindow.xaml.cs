@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MahApps.Metro.Controls;
+using WpfMiniProject.Helper;
 
 namespace WpfMiniProject
 {
@@ -35,6 +36,8 @@ namespace WpfMiniProject
                 StsResult.Content = "검색할 영화명을 입력 후, 검색 버튼을 눌러주세요";
                 return;
             }
+
+            Commons.ShowMessageAsync("결과", $"{TxtMovieName.Text}");
         }
     }
 }
