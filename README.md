@@ -1,7 +1,10 @@
-# MiniProject_Desktop
-미니프로젝트 데스크탑앱(ERP 재고관리)-->자주 하는 실수들 적기
+# MiniProject_Desktop(WPF)
+미니프로젝트 데스크탑앱(ERP 재고관리)--누겟패키지를 통한 DB연동 및 소스 코드 효율화를 통해 사용자 친화적인 UI를 신속하게 개발 가능
 -------------
-<img src="https://github.com/ochestra365/StudyDesktopApp/blob/main/WPFApp/WpfAdvBank/FineDustMonApp/Git_hub_Image/%EC%88%98%EB%8B%AC.png" width="40%" height="30%" ><br><br>
+<img src="https://github.com/ochestra365/StudyDesktopApp/blob/main/WPFApp/WpfAdvBank/FineDustMonApp/Git_hub_Image/%EC%88%98%EB%8B%AC.png" width="40%" height="30%" >
+내가 주로 하는 실수는 초기 파일을 재사용할 때, 경로 설정 및 네이밍을 잘 못 주는 실수를 하였다. 그래서 파라미터를 잘 못 넣어서 오류가 발생해도 인지하지 못하고 있었다....<br>
+
+<br><br>
 ERP 시스템에 대하여 개발해 볼 것이다!!
 -------------
 ##목차
