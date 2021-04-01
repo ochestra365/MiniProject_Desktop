@@ -92,13 +92,12 @@ namespace WpfSMSApp.View.Store
                     if (result == 0)
                     {
                         //수정 안됨
-                        LblResult.Text = "사용자 입력에 문제가 발생했습니다. 관리자에게 문의바랍니다.";
-                        LblResult.Foreground = Brushes.OrangeRed;
+                        
                     }
                     else
                     {
                         //정상적 수정됨
-                       NavigationService.Navigate(new StoreList());
+                       //NavigationService.Navigate(new UserList());
                     }
                 }
                 catch (Exception ex)//페이지는 메트로 인트로가 아니기 때문에 메시지 박스가 발생하지 않는다.

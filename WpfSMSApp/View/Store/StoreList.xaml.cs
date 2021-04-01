@@ -187,7 +187,7 @@ namespace WpfSMSApp.View.Store
         {
             try
             {
-                NavigationService.Navigate(new StoreList());
+                NavigationService.Navigate(new AddStore());
             }
             catch (Exception ex)
             {
