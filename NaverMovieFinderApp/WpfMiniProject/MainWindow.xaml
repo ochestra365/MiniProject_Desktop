@@ -26,8 +26,8 @@
         </Grid.ColumnDefinitions>
 <!--각 영역에 필요한 기능들을 넣는다.-->
         <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
-            <TextBox x:Name="TxtMovieName" Width="300" Margin="10" mah:TextBoxHelper.Watermark="검색할 영화명을 입력하세요!" mah:TextBoxHelper.UseFloatingWatermark="True" mah:TextBoxHelper.ClearTextButton="True" FontSize="14"/>
-            <Button x:Name="BtnSearch" Width="100" Margin="5,10" Content="검색" FontSize="14" Background="ForestGreen" Foreground="White" Click="BtnSearch_Click">
+            <TextBox x:Name="TxtMovieName" Width="300" Margin="10" mah:TextBoxHelper.Watermark="검색할 영화명을 입력하세요!" mah:TextBoxHelper.UseFloatingWatermark="True" mah:TextBoxHelper.ClearTextButton="True" FontSize="14" InputMethod.PreferredImeState="On" InputMethod.PreferredImeConversionMode="Native" KeyDown="TxtMovieName_KeyDown"/>
+            <Button x:Name="BtnSearch" Width="100" Margin="5,10" Content="검색" FontSize="14" Background="ForestGreen" Foreground="White">
                 <Button.ContentTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">

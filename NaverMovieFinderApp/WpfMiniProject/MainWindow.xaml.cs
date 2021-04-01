@@ -39,5 +39,10 @@ namespace WpfMiniProject
 
             Commons.ShowMessageAsync("결과", $"{TxtMovieName.Text}");
         }
+
+        private void TxtMovieName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter) BtnSearch_Click(sender, e);
+        }
     }
 }
