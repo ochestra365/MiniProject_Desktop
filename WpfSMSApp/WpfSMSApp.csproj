@@ -325,6 +325,9 @@
     <None Include="Model\SMSModel.edmx.diagram">
       <DependentUpon>SMSModel.edmx</DependentUpon>
     </None>
+    <None Include="NanumGothic.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="NLog.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -333,6 +336,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="네이버 웨일.lnk" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
