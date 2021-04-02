@@ -44,7 +44,7 @@
             <StatusBarItem x:Name="StsResult"/>
         </StatusBar>
 
-        <DataGrid Grid.Row="2" Grid.Column="1" AutoGenerateColumns="True" Style="{StaticResource MahApps.Styles.DataGrid.Azure}" Margin="10">
+        <DataGrid  x:Name="GrdData" Grid.Row="2" Grid.Column="1" AutoGenerateColumns="True" Style="{StaticResource MahApps.Styles.DataGrid.Azure}" Margin="10" ItemsSource="{Binding}">
             
         </DataGrid>
         <Image x:Name="ImgPoster" Grid.Row="1" Grid.Column="2" Grid.RowSpan="2" Margin="10" Source="No_Picture.jpg"></Image>
