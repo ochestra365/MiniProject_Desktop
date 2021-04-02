@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,14 +41,21 @@ namespace WpfMiniProject
             }
 
             // Commons.ShowMessageAsync("결과", $"{TxtMovieName.Text}");
-            ProSearchNaverApi(TxtMovieName.Text);
+            try
+            {
+                ProSearchNaverApi(TxtMovieName.Text);
+            }
+            catch (Exception ex)
+            {
+                Commons.ShowMessageAsync("예외",$"예외발생 : {ex}");
+            }
         }
 
         private void ProSearchNaverApi(string movieName)
         {
             string clientID = "Mxe3E8mU7xfCj5OHPpeK";//나의 네이버 클라이언트 아이디
             string clientSecret = "yPekeefDmu";
-            string openApiUrl = $"https://openapi.naver.com/v1/search/movie?query={movieName}";
+            string openApiUrl = $"https://openapi.naver.com/v1/search/movie?start=1&display=30&query={movieName}";
 
             string resJson = Commons.GetOpenApiResult(openApiUrl, clientID, clientSecret);
             var parsedJson = JObject.Parse(resJson);
@@ -65,13 +73,13 @@ namespace WpfMiniProject
             foreach (var item in json_array)
             {
                 Movieitem movie = new Movieitem(
-                    item["title"].ToString(),
+                    Commons.StripHtmlTag(item["title"].ToString()),
                     item["link"].ToString(),
                     item["image"].ToString(),
                     item["subtitle"].ToString(),
                     item["pubDate"].ToString(),
-                    item["director"].ToString(),
-                    item["actor"].ToString(),
+                    Commons.StripHtmlTag(item["director"].ToString()),
+                    Commons.StripHtmlTag(item["actor"].ToString()),
                     item["userRating"].ToString());
                 movieItems.Add(movie);
             }
@@ -81,6 +89,69 @@ namespace WpfMiniProject
         private void TxtMovieName_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter) BtnSearch_Click(sender, e);
+        }
+
+        private void GrdData_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
+        {
+            if (GrdData.SelectedItem == null)
+            {
+                Commons.ShowMessageAsync("오류", "영화를 선택하세요!");
+                return;
+            }
+            if(GrdData.SelectedItem is Movieitem)
+            {
+                var movie = GrdData.SelectedItem as Movieitem;
+                //Commons.ShowMessageAsync("결과", $"{movie.Image}");
+                if (string.IsNullOrEmpty(movie.Image))
+                {
+                    ImgPoster.Source = new BitmapImage(new Uri(" No_Picture.jpg", UriKind.RelativeOrAbsolute));
+                }
+                else
+                {
+                    ImgPoster.Source = new BitmapImage(new Uri(movie.Image, UriKind.RelativeOrAbsolute));
+                }
+            }
+        }
+
+        private void BtnAddWatchList_Click(object sender, RoutedEventArgs e)
+        {
+            if(GrdData.SelectedItems.Count==0)
+            {
+                Commons.ShowMessageAsync("오류", "즐겨찾기에 추가할 영화를 선택하세요(복수선택가능)");//이런 간단한 메시지가 사용자를 도와주는 것이다.
+                return;
+            }
+
+            List<NaverFavoiriteMovies> list = new List<NaverFavoiriteMovies>();
+
+            foreach (Movieitem item in GrdData.SelectedItems)
+            {
+                NaverFavoiriteMovies temp = new NaverFavoiriteMovies()
+                {
+                    Title = item.Title,
+                    Link = item.Link,
+                    Image=item.Image,
+                    SubTitle=item.SubTitle,
+                    PubDate=item.PubDate,
+                    Director=item.Director,
+                    actor=item.actor,
+                    UserRating=item.UserRating
+                };
+                list.Add(temp);
+            }
+
+            try
+            {
+                using (var ctx = new OpenApiLabEntities())
+                {
+                    ctx.Set<NaverFavoiriteMovies>().AddRange(list);
+                    ctx.SaveChanges();
+                }
+                Commons.ShowMessageAsync("저장", $"즐겨찾기에 추가했습니다");
+            }
+            catch (Exception ex)
+            {
+                Commons.ShowMessageAsync("예외", $"예외발생 : {ex}");
+            }
         }
     }
 }

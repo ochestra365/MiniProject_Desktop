@@ -6,6 +6,7 @@ using System.Windows;
 using System.Net;
 using System.IO;
 using System;
+using System.Text.RegularExpressions;
 
 namespace WpfMiniProject.Helper
 {
@@ -51,6 +52,22 @@ namespace WpfMiniProject.Helper
                 Console.WriteLine($"예외발생 : {ex}");
             }
             return result;//연산만 하면 안됨 반드시 반환값이 튀어나와야 프론트엔드에서 쓸 수 있는 값이 나온다.
+        }
+        /// <summary>
+        /// HTML 태그 삭제 메서드
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
+        public static string StripHtmlTag(string text)
+        {
+            return Regex.Replace(text, @"<(.|\n)*?>", "");//HTML 태그 삭제하는 정규표현식 @@참조를 공백으로 바꾼다.@@
+        }
+        public static string StripPipe(string text)
+        {
+            if (string.IsNullOrEmpty(text))
+            return "";
+            string result = text.Replace("|", ", ");
+            return result.Substring(0, result.LastIndexOf(","));
         }
     }
 }
