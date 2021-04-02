@@ -52,4 +52,26 @@ MD5Hash로 인해 DB에서 모르는 사용자만 아는 비밀번호로 접속�
 
 <img src="https://github.com/ochestra365/MiniProject_Desktop/blob/main/WpfSMSApp/WPF%EA%B9%83%ED%97%88%EB%B8%8C%EC%97%90%20%EC%98%AC%EB%A6%B4%20%EC%9D%B4%EB%AF%B8%EC%A7%80%20%EC%82%AC%EC%A7%84%EB%93%A4/%EC%A2%85%EB%A3%8C%EC%82%AC%EC%A7%84.png" width="40%" height="30%" ><br><br>
 <img src="https://github.com/ochestra365/MiniProject_Desktop/blob/main/WpfSMSApp/WPF%EA%B9%83%ED%97%88%EB%B8%8C%EC%97%90%20%EC%98%AC%EB%A6%B4%20%EC%9D%B4%EB%AF%B8%EC%A7%80%20%EC%82%AC%EC%A7%84%EB%93%A4/%ED%98%84%EC%9E%AC%20%EC%A0%91%EC%86%8D%EC%A4%91%EC%9D%B8%20%EA%B3%84%EC%A0%95%EC%A0%95%EB%B3%B4.png" width="40%" height="30%" ><br><br>
+
+-------------
+
 <img src="https://github.com/ochestra365/MiniProject_Desktop/blob/main/NaverMovieFinderApp/WpfMiniProject/%EA%B9%83%ED%97%88%EB%B8%8C%EC%97%90%20%EC%98%AC%EB%A6%B4%20%EC%82%AC%EC%A7%84%EB%93%A4/%EA%B2%80%EC%83%89%20%EA%B2%B0%EA%B3%BC.png" width="40%" height="30%" ><br><br>
+네이버의 OpenApi를 이용해서 검색을 할 수 있는 앱을 만들어 보았다.<br><br>
+역시 MahApp과 MahIconpack을 이용하니 UI가 좋아져서 기분이 상쾌했다.<br><br>
+여기서는 OpenApi를 이용하기 때문에 Json이라는 새로운 누겟패키지를 사용했다!!!!!! 사용된 누겟패키지는 다음과 같다.<br><br>
+<img src="https://github.com/ochestra365/MiniProject_Desktop/blob/main/NaverMovieFinderApp/WpfMiniProject/%EA%B9%83%ED%97%88%EB%B8%8C%EC%97%90%20%EC%98%AC%EB%A6%B4%20%EC%82%AC%EC%A7%84%EB%93%A4/%EC%84%A4%EC%B9%98%EB%90%9C%20%EB%88%84%EA%B2%9F%ED%94%BC%ED%82%A4%EC%A7%80.png" width="40%" height="30%" ><br><br>
+해당 프로그램을 하면서 느낀점은 다음과 같다.<br>
+~~~
+1. 오픈 API에서 response 날릴 때 주요한 것은 시그니처의 네이밍이다. 이것을 알기 위해서는 signiture에 대해 잘알아야 할 필요가 있다. 
+2. 또한 위치도 중요하다 
+3. 오픈API를 쓰기 위해서는 백엔드의 검색 형식에 맞춰서 response를 날려줘야 한다. 
+4. 회사 내부의 DB가 없으면 종속 관계를 유지할 수 밖에 없다. 
+~~~
+<br><br>
+주요개념습득<br>
+~~~
+데이터 바인딩은 앱 UI와 해당 UI가 표시하는 데이터를 연결하는 프로세스입니다. 
+바인딩 설정이 올바르고 데이터가 적절한 알림을 제공하는 경우 데이터 값이 변경될 때 데이터에 바인딩된 요소에 변경 사항이 자동으로 반영됩니다. 
+또한 요소에서 데이터의 외부 표현이 변경되면 내부 데이터가 자동으로 업데이트되어 변경 내용이 반영될 수 있습니다. 
+예를 들어 사용자가 TextBox 요소의 값을 편집하면 내부 데이터 값이 자동으로 업데이트되어 해당 변경 내용이 반영됩니다.
+~~~
