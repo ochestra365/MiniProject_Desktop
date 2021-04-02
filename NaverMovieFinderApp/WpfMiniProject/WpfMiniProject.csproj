@@ -146,5 +146,8 @@
   <ItemGroup>
     <Resource Include="깃허브에 올릴 사진들\검색 결과.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="깃허브에 올릴 사진들\설치된 누겟피키지.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
