@@ -9,7 +9,8 @@
         mc:Ignorable="d"
         Title="Naver MovieFinder" Height="550" Width="1020" >
     <Grid>
-        <Grid.RowDefinitions><!--행 정의-->
+        <Grid.RowDefinitions>
+            <!--행 정의-->
             <RowDefinition Height="20"/>
             <!--0-->
             <RowDefinition Height="70"/>
@@ -18,13 +19,14 @@
             <RowDefinition Height="auto"/>
             <!--4-->
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions><!--열 정의-->
+        <Grid.ColumnDefinitions>
+            <!--열 정의-->
             <ColumnDefinition Width="20"/>
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="20"/>
         </Grid.ColumnDefinitions>
-<!--각 영역에 필요한 기능들을 넣는다.-->
+        <!--각 영역에 필요한 기능들을 넣는다.-->
         <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
             <TextBox x:Name="TxtMovieName" Width="300" Margin="10" mah:TextBoxHelper.Watermark="검색할 영화명을 입력하세요!" mah:TextBoxHelper.UseFloatingWatermark="True" mah:TextBoxHelper.ClearTextButton="True" FontSize="14" InputMethod.PreferredImeState="On" InputMethod.PreferredImeConversionMode="Native" KeyDown="TxtMovieName_KeyDown"/>
             <Button x:Name="BtnSearch" Width="100" Margin="5,10" Content="검색" FontSize="14" Background="ForestGreen" Foreground="White">
@@ -38,9 +40,11 @@
                 </Button.ContentTemplate>
             </Button>
         </StackPanel>
-        <StatusBar Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="4"><!--여기 맞는 지 확인할 것-->
+        <StatusBar Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="4">
+            <!--여기 맞는 지 확인할 것-->
             <StatusBarItem Content="Naver &amp; Youtube OpenAPI App"/>
-            <Separator Style="{StaticResource MahApps.Styles.Separator.StatusBar}"/><!--정적으로 올라와 있는 자원중에서 MahApp의 상태줄 앱을 사용하겠다.-->
+            <Separator Style="{StaticResource MahApps.Styles.Separator.StatusBar}"/>
+            <!--정적으로 올라와 있는 자원중에서 MahApp의 상태줄 앱을 사용하겠다.-->
             <StatusBarItem x:Name="StsResult"/>
         </StatusBar>
 
@@ -66,7 +70,8 @@
                     </DataTemplate>
                 </Button.ContentTemplate>
             </Button>
-            <Button x:Name="BtnViewWatchList" Content="즐겨찾기 보기" Margin="5,10" Width="130" Background="BlueViolet" Foreground="White">
+
+            <Button x:Name="BtnViewWatchList" Content="즐겨찾기 보기" Margin="5,10" Width="130" Background="BlueViolet" Foreground="White" Click="BtnViewWatchList_Click">
                 <Button.ContentTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -76,12 +81,33 @@
                     </DataTemplate>
                 </Button.ContentTemplate>
             </Button>
-            <Button x:Name="BtnAddWatchTrailer" Content="예고편 보기" Margin="5,10" Width="130" Background="DarkBlue" Foreground="White">
+
+            <Button x:Name="BtnAddWatchTrailer" Content="예고편 보기" Margin="5,10" Width="130" Background="DarkBlue" Foreground="White" Click="BtnAddWatchTrailer_Click">
                 <Button.ContentTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="{Binding}" Margin="10,0"/>
                             <iconPacks:PackIconFontAwesome Kind="SearchSolid"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </Button.ContentTemplate>
+            </Button>
+            <Button x:Name="BtnAddDeleteCopy" Content="삭제" Margin="5,10" Width="130" Background="DarkBlue" Foreground="White" Click="BtnAddDeleteCopy_Click">
+                <Button.ContentTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding}" Margin="10,0"/>
+                            <iconPacks:PackIconFontAwesome Kind="TrashAltRegular" />
+                        </StackPanel>
+                    </DataTemplate>
+                </Button.ContentTemplate>
+            </Button>
+            <Button x:Name="BtnAddNaverWatchTrailer_Copy" Content="네이버영화" Margin="5,10" Width="130" Background="DarkBlue" Foreground="White" Click="BtnAddNaverWatchTrailer_Copy_Click">
+                <Button.ContentTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding}" Margin="10,0"/>
+                            <iconPacks:PackIconFontAwesome Kind="LinkSolid"/>
                         </StackPanel>
                     </DataTemplate>
                 </Button.ContentTemplate>

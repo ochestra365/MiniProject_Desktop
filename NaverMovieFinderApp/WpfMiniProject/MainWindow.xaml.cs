@@ -33,6 +33,7 @@ namespace WpfMiniProject
         private void BtnSearch_Click(object sender, RoutedEventArgs e)
         {
             StsResult.Content = "";
+            ImgPoster.Source = ImgPoster.Source = new BitmapImage(new Uri(" No_Picture.jpg", UriKind.RelativeOrAbsolute));
 
             if (string.IsNullOrEmpty(TxtMovieName.Text))
             {
@@ -47,7 +48,7 @@ namespace WpfMiniProject
             }
             catch (Exception ex)
             {
-                Commons.ShowMessageAsync("예외",$"예외발생 : {ex}");
+                Commons.ShowMessageAsync("예외", $"예외발생 : {ex}");
             }
         }
 
@@ -98,7 +99,7 @@ namespace WpfMiniProject
                 Commons.ShowMessageAsync("오류", "영화를 선택하세요!");
                 return;
             }
-            if(GrdData.SelectedItem is Movieitem)
+            if (GrdData.SelectedItem is Movieitem)
             {
                 var movie = GrdData.SelectedItem as Movieitem;
                 //Commons.ShowMessageAsync("결과", $"{movie.Image}");
@@ -115,11 +116,11 @@ namespace WpfMiniProject
 
         private void BtnAddWatchList_Click(object sender, RoutedEventArgs e)
         {
-            if(GrdData.SelectedItems.Count==0)
-            {
-                Commons.ShowMessageAsync("오류", "즐겨찾기에 추가할 영화를 선택하세요(복수선택가능)");//이런 간단한 메시지가 사용자를 도와주는 것이다.
-                return;
-            }
+            /*   if(GrdData.SelectedItems.Count==0)
+               {
+                   Commons.ShowMessageAsync("오류", "즐겨찾기에 추가할 영화를 선택하세요(복수선택가능)");//이런 간단한 메시지가 사용자를 도와주는 것이다.
+                   return;
+               }*/
 
             List<NaverFavoiriteMovies> list = new List<NaverFavoiriteMovies>();
 
@@ -129,12 +130,12 @@ namespace WpfMiniProject
                 {
                     Title = item.Title,
                     Link = item.Link,
-                    Image=item.Image,
-                    SubTitle=item.SubTitle,
-                    PubDate=item.PubDate,
-                    Director=item.Director,
-                    actor=item.actor,
-                    UserRating=item.UserRating
+                    Image = item.Image,
+                    SubTitle = item.SubTitle,
+                    PubDate = item.PubDate,
+                    Director = item.Director,
+                    actor = item.actor,
+                    UserRating = item.UserRating
                 };
                 list.Add(temp);
             }
@@ -151,7 +152,61 @@ namespace WpfMiniProject
             catch (Exception ex)
             {
                 Commons.ShowMessageAsync("예외", $"예외발생 : {ex}");
+                Commons.LOGGER.Error($"예외발생 : {ex}");
             }
+
+            GrdData.SelectedItem = null;
+        }
+
+        private void BtnViewWatchList_Click(object sender, RoutedEventArgs e)
+        {
+            List<Movieitem> listData = new List<Movieitem>();
+            List<NaverFavoiriteMovies> list = new List<NaverFavoiriteMovies>();
+            try
+            {
+                this.DataContext = null;
+                TxtMovieName.Text = "";
+
+                using (var ctx = new OpenApiLabEntities())
+                {
+                    list = ctx.NaverFavoiriteMovies.ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                Commons.ShowMessageAsync("예외", $"예외발생 : {ex}");
+                Commons.LOGGER.Error($"예외발생 : {ex}");
+            }
+
+            foreach (var item in list)
+            {
+                listData.Add(new Movieitem(
+                    item.Title,
+                    item.Link,
+                    item.Image,
+                    item.SubTitle,
+                    item.PubDate,
+                    item.Director,
+                    item.actor,
+                    item.UserRating
+                    ));
+                this.DataContext = listData;
+            }
+        }
+
+        private void BtnAddWatchTrailer_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnAddDeleteCopy_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnAddNaverWatchTrailer_Copy_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
