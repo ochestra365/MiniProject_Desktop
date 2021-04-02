@@ -53,6 +53,7 @@ MD5Hash로 인해 DB에서 모르는 사용자만 아는 비밀번호로 접속�
 <img src="https://github.com/ochestra365/MiniProject_Desktop/blob/main/WpfSMSApp/WPF%EA%B9%83%ED%97%88%EB%B8%8C%EC%97%90%20%EC%98%AC%EB%A6%B4%20%EC%9D%B4%EB%AF%B8%EC%A7%80%20%EC%82%AC%EC%A7%84%EB%93%A4/%EC%A2%85%EB%A3%8C%EC%82%AC%EC%A7%84.png" width="40%" height="30%" ><br><br>
 <img src="https://github.com/ochestra365/MiniProject_Desktop/blob/main/WpfSMSApp/WPF%EA%B9%83%ED%97%88%EB%B8%8C%EC%97%90%20%EC%98%AC%EB%A6%B4%20%EC%9D%B4%EB%AF%B8%EC%A7%80%20%EC%82%AC%EC%A7%84%EB%93%A4/%ED%98%84%EC%9E%AC%20%EC%A0%91%EC%86%8D%EC%A4%91%EC%9D%B8%20%EA%B3%84%EC%A0%95%EC%A0%95%EB%B3%B4.png" width="40%" height="30%" ><br><br>
 
+네이버앱 검색기!
 -------------
 
 <img src="https://github.com/ochestra365/MiniProject_Desktop/blob/main/NaverMovieFinderApp/WpfMiniProject/%EA%B9%83%ED%97%88%EB%B8%8C%EC%97%90%20%EC%98%AC%EB%A6%B4%20%EC%82%AC%EC%A7%84%EB%93%A4/%EA%B2%80%EC%83%89%20%EA%B2%B0%EA%B3%BC.png" width="40%" height="30%" ><br><br>
