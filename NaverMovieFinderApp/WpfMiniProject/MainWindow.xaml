@@ -7,7 +7,7 @@
         xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         xmlns:local="clr-namespace:WpfMiniProject"
         mc:Ignorable="d"
-        Title="Naver MovieFinder" Height="550" Width="1020" Loaded="MetroWindow_Loaded" >
+        Title="Naver MovieFinder" Height="550" Width="1020" Loaded="MetroWindow_Loaded" Closing="MetroWindow_Closing">
     <Grid>
         <Grid.RowDefinitions>
             <!--행 정의-->

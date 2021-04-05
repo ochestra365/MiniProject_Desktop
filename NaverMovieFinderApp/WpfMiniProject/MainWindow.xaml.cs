@@ -311,5 +311,21 @@ namespace WpfMiniProject
         {
             Debug.WriteLine($"즐겨찾기 여부는 : {Commons.isFavorite}");
         }
+
+        private  async void MetroWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            var result = await Commons.ShowMessageAsync("종료", "프로그램을 종료하시곘습니까?", MahApps.Metro.Controls.Dialogs.MessageDialogStyle.AffirmativeAndNegative);
+
+            if(result == MahApps.Metro.Controls.Dialogs.MessageDialogResult.Affirmative)
+            {
+                e.Cancel = true;
+                Application.Current.Shutdown();
+            }
+            else
+            {
+                e.Cancel = false;
+                return;
+            }
+        }
     }
 }
