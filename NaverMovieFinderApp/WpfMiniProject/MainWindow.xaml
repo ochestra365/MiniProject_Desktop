@@ -7,7 +7,7 @@
         xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         xmlns:local="clr-namespace:WpfMiniProject"
         mc:Ignorable="d"
-        Title="Naver MovieFinder" Height="550" Width="1020" >
+        Title="Naver MovieFinder" Height="550" Width="1020" Loaded="MetroWindow_Loaded" >
     <Grid>
         <Grid.RowDefinitions>
             <!--행 정의-->
@@ -29,7 +29,7 @@
         <!--각 영역에 필요한 기능들을 넣는다.-->
         <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
             <TextBox x:Name="TxtMovieName" Width="300" Margin="10" mah:TextBoxHelper.Watermark="검색할 영화명을 입력하세요!" mah:TextBoxHelper.UseFloatingWatermark="True" mah:TextBoxHelper.ClearTextButton="True" FontSize="14" InputMethod.PreferredImeState="On" InputMethod.PreferredImeConversionMode="Native" KeyDown="TxtMovieName_KeyDown"/>
-            <Button x:Name="BtnSearch" Width="100" Margin="5,10" Content="검색" FontSize="14" Background="ForestGreen" Foreground="White">
+            <Button x:Name="BtnSearch" Width="100" Margin="5,10" Content="검색" FontSize="14" Background="ForestGreen" Foreground="White" Click="BtnSearch_Click">
                 <Button.ContentTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -51,10 +51,10 @@
         <DataGrid  x:Name="GrdData" Grid.Row="2" Grid.Column="1" AutoGenerateColumns="False" Style="{StaticResource MahApps.Styles.DataGrid.Azure}" Margin="10" ItemsSource="{Binding}" SelectionUnit="FullRow" GridLinesVisibility="Vertical" SelectedCellsChanged="GrdData_SelectedCellsChanged" >
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Title}" Header="한글제목" IsReadOnly="True" FontWeight="Bold"/>
-                <DataGridTextColumn Binding="{Binding subtitle}" Header="영어제목" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding SubTitle}" Header="영어제목" IsReadOnly="True"/>
                 <DataGridTextColumn Binding="{Binding pubDate}" Header="상영년도" IsReadOnly="True"/>
-                <DataGridTextColumn Binding="{Binding director}" Header="감독" IsReadOnly="True"/>
-                <DataGridTextColumn Binding="{Binding actor}" Header="배우" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Director}" Header="감독" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Actor}" Header="배우" IsReadOnly="True"/>
                 <DataGridTextColumn Binding="{Binding userRating}" Header="평점" IsReadOnly="True"/>
             </DataGrid.Columns>
         </DataGrid>

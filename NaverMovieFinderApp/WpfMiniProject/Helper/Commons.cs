@@ -12,6 +12,11 @@ namespace WpfMiniProject.Helper
 {
     public class Commons
     {
+        //즐겨찾기 여부 플래그
+        public static bool isFavorite = false;
+
+        public static bool isDelete = false;// 즐겨찾기 삭제와 보기 플래그
+
         //NLOG 정적객체, 프레임워크의 기반이 되거나 Dll이 될 수도 있다.
         public static readonly Logger LOGGER = LogManager.GetCurrentClassLogger();
 
