@@ -34,7 +34,7 @@ namespace WpfMiniProject
         private void BtnSearch_Click(object sender, RoutedEventArgs e)
         {
             StsResult.Content = "";
-            ImgPoster.Source = ImgPoster.Source = new BitmapImage(new Uri(" No_Picture.jpg", UriKind.RelativeOrAbsolute));
+            ImgPoster.Source = new BitmapImage(new Uri("No_Picture.jpg", UriKind.RelativeOrAbsolute));
 
             if (string.IsNullOrEmpty(TxtMovieName.Text))
             {
@@ -187,7 +187,6 @@ namespace WpfMiniProject
 
            // List<Movieitem> listData = new List<Movieitem>();
             List<NaverFavoiriteMovies> list = new List<NaverFavoiriteMovies>();
-            Commons.isFavorite = false;//한번더 명시적으로 처리.
             try
             {
                 using (var ctx = new OpenApiLabEntities())
@@ -196,7 +195,7 @@ namespace WpfMiniProject
                 }
                 this.DataContext = list;
                 StsResult.Content= $"즐겨찾기 {list.Count}개 조회";
-                if (Commons.isDelete)
+                if (Commons.IsDelete)
                     Commons.ShowMessageAsync("즐겨찾기", "즐겨찾기 삭제완료");
                 else
                     Commons.ShowMessageAsync("즐겨찾기", "즐겨찾기 조회 완료");
@@ -209,57 +208,25 @@ namespace WpfMiniProject
                 Commons.LOGGER.Error($"예외발생 : {ex}");
                 Commons.isFavorite = false;
             }
-           /* foreach (var item in list) --> 변환 필요 없음.
-            {
-                listData.Add(new Movieitem(
-                    item.Title,
-                    item.Link,
-                    item.Image,
-                    item.SubTitle,
-                    item.PubDate,
-                    item.Director,
-                    item.actor,
-                    item.UserRating
-                    ));
-                this.DataContext = listData;
-                StsResult.Content=$"즐겨찾기 {listData.Count}개 조회";
-                Commons.ShowMessageAsync("즐겨찾기", "즐겨찾기 조회완료");
-                Commons.isFavorite = true;//즐겨찾기 맞음.
-            }*/
+            /* foreach (var item in list) --> 변환 필요 없음.
+             {
+                 listData.Add(new Movieitem(
+                     item.Title,
+                     item.Link,
+                     item.Image,
+                     item.SubTitle,
+                     item.PubDate,
+                     item.Director,
+                     item.actor,
+                     item.UserRating
+                     ));
+                 this.DataContext = listData;
+                 StsResult.Content=$"즐겨찾기 {listData.Count}개 조회";
+                 Commons.ShowMessageAsync("즐겨찾기", "즐겨찾기 조회완료");
+                 Commons.isFavorite = true;//즐겨찾기 맞음.
+             }*/
+            Commons.IsDelete = false;
         }
-
-        private void BtnAddWatchTrailer_Click(object sender, RoutedEventArgs e)
-        {
-            if (GrdData.SelectedItems.Count == 0)
-            {
-                Commons.ShowMessageAsync("네이버영화", "영화를 선택하세요");
-                return;
-            }
-
-            if (GrdData.SelectedItems.Count > 1)
-            {
-                Commons.ShowMessageAsync("네이버영화", "영화를 하나만 선택하세요");
-                return;
-            }
-
-            // 선택된 영화 네이버영화 URL 가져오기
-            string linkUrl = "";
-            if (Commons.isFavorite) // 즐겨찾기
-            {
-                var item = GrdData.SelectedItem as NaverFavoriteMovies;
-                //MessageBox.Show(item.Link);
-                linkUrl = item.Link;
-            }
-            else // 네이버API
-            {
-                var item = GrdData.SelectedItem as Movieitem;
-                //MessageBox.Show(item.Link);
-                linkUrl = item.Link;
-            }
-
-            Process.Start(linkUrl); // 웹 브라우저 띄우기
-        }
-
         private void BtnAddDeleteCopy_Click(object sender, RoutedEventArgs e)//삭제할 때도 pk값이 삭제되는 것이 중요하다.
         {
             if (Commons.isFavorite == false)
@@ -267,7 +234,7 @@ namespace WpfMiniProject
                 Commons.ShowMessageAsync("즐겨찾기,", "즐겨찾기 내용이 아니면 삭제할 수 없습니다.");
                 return;
             }
-            if(GrdData.SelectedItems.Count==0)
+            if (GrdData.SelectedItems.Count == 0)
             {
                 Commons.ShowMessageAsync("즐겨찾기,", "삭제할 즐겨찾기 영화를 선택하세요.");
                 return;
@@ -283,7 +250,7 @@ namespace WpfMiniProject
                     ctx.SaveChanges();//commit
                 }
             }
-            Commons.isDelete = true;
+            Commons.IsDelete = true;
             // 조회쿼리 다시
             BtnViewWatchList_Click(sender, e);
         }
@@ -319,7 +286,37 @@ namespace WpfMiniProject
             trailerWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             trailerWindow.ShowDialog();
         }
-          
+        private void BtnAddWatchTrailer_Click(object sender, RoutedEventArgs e)
+        {
+            if (GrdData.SelectedItems.Count == 0)
+            {
+                Commons.ShowMessageAsync("네이버영화", "영화를 선택하세요");
+                return;
+            }
+
+            if (GrdData.SelectedItems.Count > 1)
+            {
+                Commons.ShowMessageAsync("네이버영화", "영화를 하나만 선택하세요");
+                return;
+            }
+
+            // 선택된 영화 네이버영화 URL 가져오기
+            string linkUrl = "";
+            if (Commons.isFavorite) // 즐겨찾기
+            {
+                var item = GrdData.SelectedItem as NaverFavoriteMovies;
+                //MessageBox.Show(item.Link);
+                linkUrl = item.Link;
+            }
+            else // 네이버API
+            {
+                var item = GrdData.SelectedItem as Movieitem;
+                //MessageBox.Show(item.Link);
+                linkUrl = item.Link;
+            }
+
+            Process.Start(linkUrl); // 웹 브라우저 띄우기
+        }
         private void MetroWindow_Loaded(object sender, RoutedEventArgs e)
         {
             Debug.WriteLine($"즐겨찾기 여부는 : {Commons.isFavorite}");
