@@ -82,7 +82,7 @@
                 </Button.ContentTemplate>
             </Button>
 
-            <Button x:Name="BtnAddWatchTrailer" Content="예고편 보기" Margin="5,10" Width="130" Background="DarkBlue" Foreground="White" Click="BtnAddWatchTrailer_Click">
+            <Button x:Name="BtnAddWatchTrailer" Content="네이버 보기" Margin="5,10" Width="130" Background="DarkBlue" Foreground="White" Click="BtnAddWatchTrailer_Click">
                 <Button.ContentTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -102,7 +102,7 @@
                     </DataTemplate>
                 </Button.ContentTemplate>
             </Button>
-            <Button x:Name="BtnAddNaverWatchTrailer_Copy" Content="네이버영화" Margin="5,10" Width="130" Background="DarkBlue" Foreground="White" Click="BtnAddNaverWatchTrailer_Copy_Click">
+            <Button x:Name="BtnAddNaverWatchTrailer_Copy" Content="유튜브 예고편" Margin="5,10" Width="130" Background="DarkBlue" Foreground="White" Click="BtnAddNaverWatchTrailer_Copy_Click">
                 <Button.ContentTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">

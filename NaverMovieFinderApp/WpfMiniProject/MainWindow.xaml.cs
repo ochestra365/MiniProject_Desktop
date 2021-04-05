@@ -273,7 +273,21 @@ namespace WpfMiniProject
                 return;
             }
 
-            var trailerWindow = new TrailerWindow();
+            string movieName = "";
+            if (Commons.isFavorite)//즐겨찾기
+            {
+                var item = GrdData.SelectedItem as NaverFavoiriteMovies;
+                //MessageBox.Show(item.Link);
+                movieName = item.Title;
+            }
+            else//네이버API
+            {
+                var item = GrdData.SelectedItem as Movieitem;
+                //MessageBox.Show(item.Link);
+                movieName = item.Link;
+            }
+
+            var trailerWindow = new TrailerWindow(movieName);
             trailerWindow.Owner = this;
             trailerWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             trailerWindow.ShowDialog();

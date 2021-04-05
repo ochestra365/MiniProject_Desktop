@@ -6,7 +6,7 @@
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:local="clr-namespace:WpfMiniProject"
         mc:Ignorable="d"
-        Title="TrailerWindow" Height="350" Width="800">
+        Title="TrailerWindow" Height="350" Width="800" Loaded="MetroWindow_Loaded">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
