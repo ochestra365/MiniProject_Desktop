@@ -72,15 +72,7 @@ MD5Hash로 인해 DB에서 모르는 사용자만 아는 비밀번호로 접속�
 * mah양식을 따를 경우, xaml에서 고쳐야 할 부분과 xaml.cs에서 고쳐야 할 부분을 아는 것이 중요했다.<br>
 
 
-<img src="https://github.com/ochestra365/MiniProject_Desktop/blob/main/NaverMovieFinderApp/WpfMiniProject/%EA%B9%83%ED%97%88%EB%B8%8C%EC%97%90%20%EC%98%AC%EB%A6%B4%20%EC%82%AC%EC%A7%84%EB%93%A4/%EA%B2%80%EC%83%89%EC%82%AC%EC%A7%84.png" width="40%" height="30%" ><br><br>
 
-
-<img src="https://github.com/ochestra365/MiniProject_Desktop/blob/main/NaverMovieFinderApp/WpfMiniProject/%EA%B9%83%ED%97%88%EB%B8%8C%EC%97%90%20%EC%98%AC%EB%A6%B4%20%EC%82%AC%EC%A7%84%EB%93%A4/%EC%82%AD%EC%A0%9C%EB%82%B4%EC%9A%A9.png" width="40%" height="30%" ><br><br>
-
-<img src="https://github.com/ochestra365/MiniProject_Desktop/blob/main/NaverMovieFinderApp/WpfMiniProject/%EA%B9%83%ED%97%88%EB%B8%8C%EC%97%90%20%EC%98%AC%EB%A6%B4%20%EC%82%AC%EC%A7%84%EB%93%A4/%EC%82%AD%EC%A0%9C%EB%82%B4%EC%9A%A9.png" width="40%" height="30%" ><br><br>
-
-3%A4/%EC%82%AD%EC%A0%9C%ED%99%94%EB%A9%B4.png
-<img src="https://github.com/ochestra365/MiniProject_Desktop/blob/main/NaverMovieFinderApp/WpfMiniProject/%EA%B9%83%ED%97%88%EB%B8%8C%EC%97%90%20%EC%98%AC%EB%A6%B4%20%EC%82%AC%EC%A7%84%EB%93%A4/%EC%82%AD%EC%A0%9C%ED%99%94%EB%A9%B4.png" width="40%" height="30%" ><br><br>
 해당 프로그램을 하면서 느낀점은 다음과 같다.<br>
 ~~~
 1. 오픈 API에서 response 날릴 때 주요한 것은 시그니처의 네이밍이다. 이것을 알기 위해서는 signiture에 대해 잘알아야 할 필요가 있다. 
