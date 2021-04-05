@@ -230,7 +230,34 @@ namespace WpfMiniProject
 
         private void BtnAddWatchTrailer_Click(object sender, RoutedEventArgs e)
         {
+            if (GrdData.SelectedItems.Count == 0)
+            {
+                Commons.ShowMessageAsync("네이버영화", "영화를 선택하세요");
+                return;
+            }
 
+            if (GrdData.SelectedItems.Count > 1)
+            {
+                Commons.ShowMessageAsync("네이버영화", "영화를 하나만 선택하세요");
+                return;
+            }
+
+            // 선택된 영화 네이버영화 URL 가져오기
+            string linkUrl = "";
+            if (Commons.isFavorite) // 즐겨찾기
+            {
+                var item = GrdData.SelectedItem as NaverFavoriteMovies;
+                //MessageBox.Show(item.Link);
+                linkUrl = item.Link;
+            }
+            else // 네이버API
+            {
+                var item = GrdData.SelectedItem as Movieitem;
+                //MessageBox.Show(item.Link);
+                linkUrl = item.Link;
+            }
+
+            Process.Start(linkUrl); // 웹 브라우저 띄우기
         }
 
         private void BtnAddDeleteCopy_Click(object sender, RoutedEventArgs e)//삭제할 때도 pk값이 삭제되는 것이 중요하다.
@@ -292,21 +319,7 @@ namespace WpfMiniProject
             trailerWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             trailerWindow.ShowDialog();
         }
-           /* //선택된 영화의 네이버영화 URL 가져오기
-            string linUrl = "";
-            if(Commons.isFavorite)//즐겨찾기
-            {
-                var item = GrdData.SelectedItem as NaverFavoiriteMovies;
-                //MessageBox.Show(item.Link);
-            }
-            else//네이버API
-            {
-                var item = GrdData.SelectedItem as Movieitem;
-                //MessageBox.Show(item.Link);
-                linUrl = item.Link;
-            }
-            Process.Start(linUrl);// 웹 브라우저 띄우기.
-        }*/
+          
         private void MetroWindow_Loaded(object sender, RoutedEventArgs e)
         {
             Debug.WriteLine($"즐겨찾기 여부는 : {Commons.isFavorite}");
