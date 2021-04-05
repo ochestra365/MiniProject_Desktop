@@ -1,4 +1,4 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows.Media.Imaging;
 
 namespace WpfMiniProject.Model
 {
@@ -7,6 +7,6 @@ namespace WpfMiniProject.Model
         public string Title { get; set; }
         public string Author { get; set; }
         public string URL { get; set; }
-        public Image Thumbnail { get; set; }
+        public BitmapImage Thumbnail { get; set; }
     }
 }

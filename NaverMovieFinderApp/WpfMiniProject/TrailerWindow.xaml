@@ -6,7 +6,7 @@
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:local="clr-namespace:WpfMiniProject"
         mc:Ignorable="d"
-        Title="TrailerWindow" Height="350" Width="800" Loaded="MetroWindow_Loaded">
+        Title="TrailerWindow" Height="350" Width="800" Loaded="MetroWindow_Loaded" Closing="MetroWindow_Closing">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
@@ -19,13 +19,13 @@
 
         <Label x:Name="LblMovieName" Grid.Row="0" Grid.Column="0"  FontSize="16" Margin="5" Style="{StaticResource MahApps.Styles.Label}"/>
 
-        <ListView x:Name="LsvYoutubeSearch" Grid.Row="1" Grid.Column="0">
+        <ListView x:Name="LsvYoutubeSearch" Grid.Row="1" Grid.Column="0" MouseDoubleClick="LsvYoutubeSearch_MouseDoubleClick">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="섬네일">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Image Source="{Binding Thubnail}"/>
+                                <Image Source="{Binding Thumbnail}"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -37,7 +37,7 @@
         </ListView>
 
         <Grid Grid.Row="0" Grid.Column="1" Grid.RowSpan="2">
-            <WebBrowser x:Name="BrwYoutubeWatch"/>
+            <WebBrowser x:Name="BrwYoutubeWatch" />
         </Grid>
     </Grid>
 </mah:MetroWindow>
