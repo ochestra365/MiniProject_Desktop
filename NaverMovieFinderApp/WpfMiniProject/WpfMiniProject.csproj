@@ -222,6 +222,7 @@
       <DependentUpon>FavoriteMovieModel.edmx</DependentUpon>
       <LastGenOutput>FavoriteMovieModel.cs</LastGenOutput>
     </Content>
+    <Resource Include="깃허브에 올릴 사진들\오류발생.png" />
     <Content Include="네이버 데이터베이스.sql" />
     <Resource Include="깃허브에 올릴 사진들\검색사진.png" />
     <Resource Include="깃허브에 올릴 사진들\삭제내용.png" />
