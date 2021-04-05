@@ -11,12 +11,18 @@ ERP 시스템에 대하여 개발해 볼 것이다!!
 -------------
 ##목차
 1. ![Helper](https://github.com/ochestra365/MiniProject_Desktop/blob/main/WpfSMSApp/Helper/Commons.cs)
-2. ![Logic.DataAccess](https://github.com/ochestra365/MiniProject_Desktop/blob/main/WpfSMSApp/Logic/DataAccess.cs)
-3. ![View](https://github.com/ochestra365/MiniProject_Desktop/tree/main/WpfSMSApp/View)
-4. ![Mainxaml](https://github.com/ochestra365/MiniProject_Desktop/blob/main/WpfSMSApp/MainWindow.xaml)
-5. ![Mainxaml.cs](https://github.com/ochestra365/MiniProject_Desktop/blob/main/WpfSMSApp/MainWindow.xaml.cs)
-6. ![Database.sql](https://github.com/ochestra365/MiniProject_Desktop/blob/main/NaverMovieFinderApp/WpfMiniProject/%EB%84%A4%EC%9D%B4%EB%B2%84%20%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4.sql)
-7. ![MahApps_GetStarted](https://mahapps.com/docs/guides/quick-start)
+2. 
+3. ![Logic.DataAccess](https://github.com/ochestra365/MiniProject_Desktop/blob/main/WpfSMSApp/Logic/DataAccess.cs)
+4. 
+5. ![View](https://github.com/ochestra365/MiniProject_Desktop/tree/main/WpfSMSApp/View)
+6. 
+7. ![Mainxaml](https://github.com/ochestra365/MiniProject_Desktop/blob/main/WpfSMSApp/MainWindow.xaml)
+8. 
+9. ![Mainxaml.cs](https://github.com/ochestra365/MiniProject_Desktop/blob/main/WpfSMSApp/MainWindow.xaml.cs)
+10. 
+11. ![Database.sql](https://github.com/ochestra365/MiniProject_Desktop/blob/main/NaverMovieFinderApp/WpfMiniProject/%EB%84%A4%EC%9D%B4%EB%B2%84%20%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4.sql)
+
+13. ![MahApps_GetStarted](https://mahapps.com/docs/guides/quick-start)
 -------------
 ##설명
 <br><br><br>
