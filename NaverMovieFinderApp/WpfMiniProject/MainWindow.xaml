@@ -48,14 +48,14 @@
             <StatusBarItem x:Name="StsResult"/>
         </StatusBar>
 
-        <DataGrid  x:Name="GrdData" Grid.Row="2" Grid.Column="1" AutoGenerateColumns="False" Style="{StaticResource MahApps.Styles.DataGrid.Azure}" Margin="10" ItemsSource="{Binding}" SelectionUnit="FullRow" GridLinesVisibility="Vertical" SelectedCellsChanged="GrdData_SelectedCellsChanged" >
+        <DataGrid  x:Name="GrdData" Grid.Row="2" Grid.Column="1" AutoGenerateColumns="False" Style="{StaticResource MahApps.Styles.DataGrid.Azure}" Margin="10" ItemsSource="{Binding}" IsReadOnly="True" SelectionUnit="FullRow" GridLinesVisibility="Vertical" SelectedCellsChanged="GrdData_SelectedCellsChanged" >
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Title}" Header="한글제목" IsReadOnly="True" FontWeight="Bold"/>
                 <DataGridTextColumn Binding="{Binding SubTitle}" Header="영어제목" IsReadOnly="True"/>
                 <DataGridTextColumn Binding="{Binding pubDate}" Header="상영년도" IsReadOnly="True"/>
                 <DataGridTextColumn Binding="{Binding Director}" Header="감독" IsReadOnly="True"/>
                 <DataGridTextColumn Binding="{Binding Actor}" Header="배우" IsReadOnly="True"/>
-                <DataGridTextColumn Binding="{Binding userRating}" Header="평점" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding userRating}" Header="네티즌평점" IsReadOnly="True"/>
             </DataGrid.Columns>
         </DataGrid>
         <Image x:Name="ImgPoster" Grid.Row="1" Grid.Column="2" Grid.RowSpan="2" Margin="10" Source="No_Picture.jpg"></Image>

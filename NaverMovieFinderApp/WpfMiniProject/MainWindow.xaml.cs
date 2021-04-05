@@ -245,7 +245,7 @@ namespace WpfMiniProject
                 Commons.ShowMessageAsync("즐겨찾기,", "삭제할 즐겨찾기 영화를 선택하세요.");
                 return;
             }
-          //  List<NaverFavoiriteMovies> removelist = new List<NaverFavoiriteMovies>();
+            //List<NaverFavoiriteMovies> removelist = new List<NaverFavoiriteMovies>();
             foreach (NaverFavoiriteMovies item in GrdData.SelectedItems)
             {
                 using (var ctx = new OpenApiLabEntities())
@@ -272,8 +272,20 @@ namespace WpfMiniProject
                 Commons.ShowMessageAsync("네이버 영화", "영화를 하나만 선택하세요.");
                 return;
             }
-
-            //선택된 영화의 네이버영화 URL 가져오기ㄴ
+            //선택된 영화의 네이버영화 URL 가져오기
+            string linUrl = "";
+            if(Commons.isFavorite)//즐겨찾기
+            {
+                var item = GrdData.SelectedItem as NaverFavoiriteMovies;
+                //MessageBox.Show(item.Link);
+            }
+            else//네이버API
+            {
+                var item = GrdData.SelectedItem as Movieitem;
+                //MessageBox.Show(item.Link);
+                linUrl = item.Link;
+            }
+            Process.Start(linUrl);// 웹 브라우저 띄우기.
         }
         private void MetroWindow_Loaded(object sender, RoutedEventArgs e)
         {
