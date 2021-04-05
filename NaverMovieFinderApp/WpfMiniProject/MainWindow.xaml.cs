@@ -284,14 +284,15 @@ namespace WpfMiniProject
             {
                 var item = GrdData.SelectedItem as Movieitem;
                 //MessageBox.Show(item.Link);
-                movieName = item.Link;
+                movieName = item.Title;
             }
 
             var trailerWindow = new TrailerWindow(movieName);
             trailerWindow.Owner = this;
             trailerWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             trailerWindow.ShowDialog();
-            //선택된 영화의 네이버영화 URL 가져오기
+        }
+           /* //선택된 영화의 네이버영화 URL 가져오기
             string linUrl = "";
             if(Commons.isFavorite)//즐겨찾기
             {
@@ -305,7 +306,7 @@ namespace WpfMiniProject
                 linUrl = item.Link;
             }
             Process.Start(linUrl);// 웹 브라우저 띄우기.
-        }
+        }*/
         private void MetroWindow_Loaded(object sender, RoutedEventArgs e)
         {
             Debug.WriteLine($"즐겨찾기 여부는 : {Commons.isFavorite}");
