@@ -264,14 +264,19 @@ namespace WpfMiniProject
         {
             if (GrdData.SelectedItems.Count == 0)
             {
-                Commons.ShowMessageAsync("네이버 영화", "영화를 선택하세요.");
+                Commons.ShowMessageAsync("유튜브 영화", "영화를 선택하세요.");
                 return;
             }
             if (GrdData.SelectedItems.Count > 1)
             {
-                Commons.ShowMessageAsync("네이버 영화", "영화를 하나만 선택하세요.");
+                Commons.ShowMessageAsync("유튜브 영화", "영화를 하나만 선택하세요.");
                 return;
             }
+
+            var trailerWindow = new TrailerWindow();
+            trailerWindow.Owner = this;
+            trailerWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            trailerWindow.ShowDialog();
             //선택된 영화의 네이버영화 URL 가져오기
             string linUrl = "";
             if(Commons.isFavorite)//즐겨찾기
