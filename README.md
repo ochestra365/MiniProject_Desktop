@@ -16,7 +16,7 @@ ERP 시스템에 대하여 개발해 볼 것이다!!
 * ![Mainxaml](https://github.com/ochestra365/MiniProject_Desktop/blob/main/WpfSMSApp/MainWindow.xaml)<br>
 * ![Mainxaml.cs](https://github.com/ochestra365/MiniProject_Desktop/blob/main/WpfSMSApp/MainWindow.xaml.cs)<br>
 * ![Database.sql](https://github.com/ochestra365/MiniProject_Desktop/blob/main/NaverMovieFinderApp/WpfMiniProject/%EB%84%A4%EC%9D%B4%EB%B2%84%20%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4.sql)<br>
-* ![MahApps_GetStarted](https://mahapps.com/docs/guides/quick-start)<br><br><br><br>
+* ![MahApps_GetStarted](https://mahapps.com/docs/guides/quick-start)<br><br>
 
 ##설명
 -------------
