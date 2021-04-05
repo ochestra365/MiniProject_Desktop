@@ -53,9 +53,13 @@ using System.Data.Entity.Migrations;
 해당 이미지는 DB상에 실존하는 Admin의 주소이다. <br><br>
 MD5Hash로 인해 DB에서 관리자는 비밀번호를 모른다. 사용자만 아는 비밀번호로 접속할 수 있었다.<br><br>
 amdin 관리자에게만 접속권한을 줌으로써 보안이 강화되었다.<br><br>
-<img src="https://github.com/ochestra365/MiniProject_Desktop/blob/main/WpfSMSApp/WPF%EA%B9%83%ED%97%88%EB%B8%8C%EC%97%90%20%EC%98%AC%EB%A6%B4%20%EC%9D%B4%EB%AF%B8%EC%A7%80%20%EC%82%AC%EC%A7%84%EB%93%A4/%EC%A0%91%EC%86%8D.png" width="40%" height="30%" ><br><br>
-
+<img src="https://github.com/ochestra365/MiniProject_Desktop/blob/main/WpfSMSApp/WPF%EA%B9%83%ED%97%88%EB%B8%8C%EC%97%90%20%EC%98%AC%EB%A6%B4%20%EC%9D%B4%EB%AF%B8%EC%A7%80%20%EC%82%AC%EC%A7%84%EB%93%A4/%EC%A0%91%EC%86%8D.png" width="40%" height="30%" ><br>
+해당 이미지는 권한이 부여된 관리자가 접속하는 것을 보여준다.<br><br>
 <img src="https://github.com/ochestra365/MiniProject_Desktop/blob/main/WpfSMSApp/WPF%EA%B9%83%ED%97%88%EB%B8%8C%EC%97%90%20%EC%98%AC%EB%A6%B4%20%EC%9D%B4%EB%AF%B8%EC%A7%80%20%EC%82%AC%EC%A7%84%EB%93%A4/PDF%20EXPORT.png" width="40%" height="30%" ><br><br>
+CRUD를 통해 만들어진 최신 자료를 PDF로 형변환 할 수도 있다.<br><br>
+
+사용자(관리자) UI
+-------------
 <img src="https://github.com/ochestra365/MiniProject_Desktop/blob/main/WpfSMSApp/WPF%EA%B9%83%ED%97%88%EB%B8%8C%EC%97%90%20%EC%98%AC%EB%A6%B4%20%EC%9D%B4%EB%AF%B8%EC%A7%80%20%EC%82%AC%EC%A7%84%EB%93%A4/%EA%B3%84%EC%A0%95%EC%A0%95%EB%B3%B4%EC%88%98%EC%A0%95.png" width="40%" height="30%" ><br><br>
 <img src="https://github.com/ochestra365/MiniProject_Desktop/blob/main/WpfSMSApp/WPF%EA%B9%83%ED%97%88%EB%B8%8C%EC%97%90%20%EC%98%AC%EB%A6%B4%20%EC%9D%B4%EB%AF%B8%EC%A7%80%20%EC%82%AC%EC%A7%84%EB%93%A4/%EC%82%AC%EC%9A%A9%EC%9E%90%EB%A6%AC%EC%8A%A4%ED%8A%B8%20.png" width="40%" height="30%" ><br><br>
 <img src="https://github.com/ochestra365/MiniProject_Desktop/blob/main/WpfSMSApp/WPF%EA%B9%83%ED%97%88%EB%B8%8C%EC%97%90%20%EC%98%AC%EB%A6%B4%20%EC%9D%B4%EB%AF%B8%EC%A7%80%20%EC%82%AC%EC%A7%84%EB%93%A4/%EC%82%AC%EC%9A%A9%EC%9E%90%EB%A6%AC%EC%8A%A4%ED%8A%B8%20%EC%B6%94%EA%B0%80.png" width="40%" height="30%" ><br><br>
