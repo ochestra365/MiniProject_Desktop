@@ -9,7 +9,7 @@ WPF Binding의 생성자의 대소문자 구분을 잘못 하고 있었다.<br>
 <br><br>
 ERP 시스템에 대하여 개발해 볼 것이다!!
 -------------
-##목차
+##목차<br><br>
 1. ![Helper](https://github.com/ochestra365/MiniProject_Desktop/blob/main/WpfSMSApp/Helper/Commons.cs)<br>
 3. ![Logic.DataAccess](https://github.com/ochestra365/MiniProject_Desktop/blob/main/WpfSMSApp/Logic/DataAccess.cs)<br>
 5. ![View](https://github.com/ochestra365/MiniProject_Desktop/tree/main/WpfSMSApp/View)<br>
