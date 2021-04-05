@@ -3,7 +3,9 @@
 -------------
 <img src="https://github.com/ochestra365/StudyDesktopApp/blob/main/WPFApp/WpfAdvBank/FineDustMonApp/Git_hub_Image/%EC%88%98%EB%8B%AC.png" width="40%" height="30%" >
 내가 주로 하는 실수는 초기 파일을 재사용할 때, 경로 설정 및 네이밍을 잘 못 주는 실수를 하였다. 그래서 파라미터를 잘 못 넣어서 오류가 발생해도 인지하지 못하고 있었다....<br>
-
+WPF Binding의 생성자의 대소문자 구분을 잘못 하고 있었다.<br>
+네임스페이스의 경로를 잘못 주고 있었다.<br>
+누겟패키지 관리에서 패키지를 잘못 설치했다.<br>
 <br><br>
 ERP 시스템에 대하여 개발해 볼 것이다!!
 -------------
@@ -14,6 +16,7 @@ ERP 시스템에 대하여 개발해 볼 것이다!!
 4. ![Mainxaml](https://github.com/ochestra365/MiniProject_Desktop/blob/main/WpfSMSApp/MainWindow.xaml)
 5. ![Mainxaml.cs](https://github.com/ochestra365/MiniProject_Desktop/blob/main/WpfSMSApp/MainWindow.xaml.cs)
 6. ![Database.sql](https://github.com/ochestra365/MiniProject_Desktop/blob/main/NaverMovieFinderApp/WpfMiniProject/%EB%84%A4%EC%9D%B4%EB%B2%84%20%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4.sql)
+7. ![MahApps_GetStarted](https://mahapps.com/docs/guides/quick-start)
 -------------
 ##설명
 <br><br><br>
@@ -54,7 +57,7 @@ MD5Hash로 인해 DB에서 모르는 사용자만 아는 비밀번호로 접속�
 <img src="https://github.com/ochestra365/MiniProject_Desktop/blob/main/WpfSMSApp/WPF%EA%B9%83%ED%97%88%EB%B8%8C%EC%97%90%20%EC%98%AC%EB%A6%B4%20%EC%9D%B4%EB%AF%B8%EC%A7%80%20%EC%82%AC%EC%A7%84%EB%93%A4/%EC%A2%85%EB%A3%8C%EC%82%AC%EC%A7%84.png" width="40%" height="30%" ><br><br>
 <img src="https://github.com/ochestra365/MiniProject_Desktop/blob/main/WpfSMSApp/WPF%EA%B9%83%ED%97%88%EB%B8%8C%EC%97%90%20%EC%98%AC%EB%A6%B4%20%EC%9D%B4%EB%AF%B8%EC%A7%80%20%EC%82%AC%EC%A7%84%EB%93%A4/%ED%98%84%EC%9E%AC%20%EC%A0%91%EC%86%8D%EC%A4%91%EC%9D%B8%20%EA%B3%84%EC%A0%95%EC%A0%95%EB%B3%B4.png" width="40%" height="30%" ><br><br>
 
-네이버앱 검색기!
+네이버 영화앱 검색기!
 -------------
 
 <img src="https://github.com/ochestra365/MiniProject_Desktop/blob/main/NaverMovieFinderApp/WpfMiniProject/%EA%B9%83%ED%97%88%EB%B8%8C%EC%97%90%20%EC%98%AC%EB%A6%B4%20%EC%82%AC%EC%A7%84%EB%93%A4/%EA%B2%80%EC%83%89%20%EA%B2%B0%EA%B3%BC.png" width="40%" height="30%" ><br><br>
@@ -62,7 +65,9 @@ MD5Hash로 인해 DB에서 모르는 사용자만 아는 비밀번호로 접속�
 역시 MahApp과 MahIconpack을 이용하니 UI가 좋아져서 기분이 상쾌했다.<br><br>
 여기서는 OpenApi를 이용하기 때문에 Json이라는 새로운 누겟패키지를 사용했다!!!!!! 사용된 누겟패키지는 다음과 같다.<br><br>
 <img src="https://github.com/ochestra365/MiniProject_Desktop/blob/main/NaverMovieFinderApp/WpfMiniProject/%EA%B9%83%ED%97%88%EB%B8%8C%EC%97%90%20%EC%98%AC%EB%A6%B4%20%EC%82%AC%EC%A7%84%EB%93%A4/%EC%84%A4%EC%B9%98%EB%90%9C%20%EB%88%84%EA%B2%9F%ED%94%BC%ED%82%A4%EC%A7%80.png" width="40%" height="30%" ><br><br>
-해당 프로그램을 하면서 느낀점은 다음과 같다.<br>
+해당 프로그램을 하면서 느낀점은 다음과 같다.<br><br>
+* xaml에서 컨트롤의 네이밍을 잘 못 줘서 일이 비효율적으로 했다. 그래서 네이밍을 잘 주는 게 얼마나 중요한 지 알게 되었다.<br>
+* mah양식을 따를 경우, xaml에서 고쳐야 할 부분과 xaml.cs에서 고쳐야 할 부분을 아는 것이 중요했다.<br>
 
 
 <img src="https://github.com/ochestra365/MiniProject_Desktop/blob/main/NaverMovieFinderApp/WpfMiniProject/%EA%B9%83%ED%97%88%EB%B8%8C%EC%97%90%20%EC%98%AC%EB%A6%B4%20%EC%82%AC%EC%A7%84%EB%93%A4/%EA%B2%80%EC%83%89%EC%82%AC%EC%A7%84.png" width="40%" height="30%" ><br><br>
