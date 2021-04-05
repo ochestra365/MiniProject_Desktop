@@ -18,7 +18,7 @@ ERP 시스템에 대하여 개발해 볼 것이다!!
 * ![View](https://github.com/ochestra365/MiniProject_Desktop/tree/main/WpfSMSApp/View)<br>
 * ![Mainxaml](https://github.com/ochestra365/MiniProject_Desktop/blob/main/WpfSMSApp/MainWindow.xaml)<br>
 * ![Mainxaml.cs](https://github.com/ochestra365/MiniProject_Desktop/blob/main/WpfSMSApp/MainWindow.xaml.cs)<br>
-* ![Database.sql](https://github.com/ochestra365/MiniProject_Desktop/blob/main/NaverMovieFinderApp/WpfMiniProject/%EB%84%A4%EC%9D%B4%EB%B2%84%20%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4.sql)<br>
+
 * ![MahApps_GetStarted](https://mahapps.com/docs/guides/quick-start)<br><br>
 
 ##설명
@@ -73,6 +73,14 @@ CRUD를 통해 만들어진 최신 자료를 PDF로 형변환 할 수도 있다.
 네이버 영화앱 검색기!
 -------------
 
+
+목차(NaverMovieFinderApp의 주요소스 넣자!)
+-------------
+![Database.sql](https://github.com/ochestra365/MiniProject_Desktop/blob/main/NaverMovieFinderApp/WpfMiniProject/%EB%84%A4%EC%9D%B4%EB%B2%84%20%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4.sql)<br>
+
+
+구동화면
+-------------
 <img src="https://github.com/ochestra365/MiniProject_Desktop/blob/main/NaverMovieFinderApp/WpfMiniProject/%EA%B9%83%ED%97%88%EB%B8%8C%EC%97%90%20%EC%98%AC%EB%A6%B4%20%EC%82%AC%EC%A7%84%EB%93%A4/%EA%B2%80%EC%83%89%20%EA%B2%B0%EA%B3%BC.png" width="40%" height="30%" ><br><br>
 네이버의 OpenApi를 이용해서 검색을 할 수 있는 앱을 만들어 보았다.<br><br>
 역시 MahApp과 MahIconpack을 이용하니 UI가 좋아져서 기분이 상쾌했다.<br><br>
