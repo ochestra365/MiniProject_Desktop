@@ -55,6 +55,9 @@ namespace WpfSMSApp.View.Store
                         BarcodeID = item.BarcodeID,
                         StocksQuantity = 0
                     };
+                    /*store.StockQuantity = Logic.DataAccess.GetStocks().Where(t => t.StoreID.Equals(store.StoreID)).Count();
+
+                    stockStores.Add(store);*/
                 }
                 this.DataContext = stockstores;
             }
@@ -192,6 +195,7 @@ namespace WpfSMSApp.View.Store
             catch (Exception ex)
             {
                 Commons.LOGGER.Error($"예외 발생  BtnAddStore_Click : {ex}");
+                throw ex;
             }
         }
 
@@ -268,3 +272,4 @@ namespace WpfSMSApp.View.Store
         }
     }
 }
+//StockQuantity 정보를 읽을 수가 없고 Page_Load파트를 수정하니 출력화면에 창고정보가 날라오지 않는다 왜그렇지
