@@ -17,6 +17,9 @@ using Microsoft.Win32;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System.IO;
+using NPOI.SS.UserModel;
+using NPOI.XSSF.UserModel;
+using NPOI.HSSF.UserModel;
 
 namespace WpfSMSApp.View.Store
 {
@@ -53,9 +56,8 @@ namespace WpfSMSApp.View.Store
                         TagID = item.TagID,
                         BarcodeID = item.BarcodeID,
                         StocksQuantity = 0
-                    }); ;
+                    });
                 }
-
                 this.DataContext = stockstores;
             }
             catch (Exception ex)
@@ -215,7 +217,53 @@ namespace WpfSMSApp.View.Store
 
         private void BtnExportEXCEL_Click(object sender, RoutedEventArgs e)
         {
+            SaveFileDialog dialog = new SaveFileDialog();
+            dialog.Filter = "Excel File (x.xlsx|*.xlsx";//엑셀확장자 필터링
+            dialog.FileName = "";
+            if (dialog.ShowDialog() == true)
+            {
+                try
+                {
+                    IWorkbook workbook = new XSSFWorkbook();//xlsx용 //new HSSFWorkbook();//xls(이전버전용)
+                    ISheet sheet = workbook.CreateSheet("Sheet1");//이름변경 가능
+                                                                  //헤더row
+                    IRow rowHeader = sheet.CreateRow(0);
+                    ICell cell = rowHeader.CreateCell(0);
+                    cell.SetCellValue("순번");
+                    cell = rowHeader.CreateCell(1);
+                    cell.SetCellValue("창고명");
+                    cell = rowHeader.CreateCell(3);
+                    cell.SetCellValue("창고위치");
+                    cell = rowHeader.CreateCell(3);
+                    cell.SetCellValue("재고수");
 
+                    //요거는 페이지 로드 부분 고쳐야 나옴
+             /*       for (int i = 0; i < GrdData.Items.Count; i++)
+                    {
+                        IRow row = sheet.CreateRow(i + 1);//
+                        var store = GrdData.Items[i] as Model.StockStore;//이거 고쳐야 함.
+                        ICell datacell = row.CreateCell(0);
+                        datacell.SetCellValue(stockStore.StoreID);
+                        ICell datacell = row.CreateCell(1);
+                        datacell.SetCellValue(stockStore.StoreName);
+                        ICell datacell = row.CreateCell(2);
+                        datacell.SetCellValue(stockStore.StoreLocation);
+                        ICell datacell = row.CreateCell(3);
+                        datacell.SetCellValue(stockStore.StockQuantity);
+                    }*/
+                    //파일저장
+                    using (var fs = new FileStream(dialog.FileName, FileMode.OpenOrCreate, FileAccess.Write))//디버그 잡아서 마우스 올려보면 매개변수에 데이터가 스택이 되었는 지 알 수 있다. 평상시 유저에게는 FileName으로 인지되지만 컴파일러는 경로로 인식함을 알 수 있따다.
+                    {
+                        workbook.Write(fs);
+                    }
+                    Commons.ShowMessageAsync("엑셀저장", "엑셀export 성공!");
+                }
+                catch (Exception ex)
+                {
+                    Commons.ShowMessageAsync("예외", $"예외발생 {ex}");
+                    Commons.LOGGER.Error($"예외 발생 : {ex}");
+                }
+            }
         }
     }
 }
