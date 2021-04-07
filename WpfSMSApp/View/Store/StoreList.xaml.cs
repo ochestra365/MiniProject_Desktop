@@ -198,6 +198,14 @@ namespace WpfSMSApp.View.Store
         private void BtnEditStore_Click(object sender, RoutedEventArgs e)
         {
 
+            try
+            {
+                NavigationService.Navigate(new EidtStore());
+            }
+            catch (Exception ex)
+            {
+                Commons.LOGGER.Error($"예외 발생  EidtStore_Click : {ex}");
+            }
         }
 
         private void BtnExportEXCEL_Click(object sender, RoutedEventArgs e)
