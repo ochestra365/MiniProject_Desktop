@@ -68,15 +68,15 @@
             <Label Grid.Row="2" Grid.Column="0" Content="창고위치" />
           
 
-            <TextBlock Grid.Row="0" Grid.Column="1" x:Name="TxtUserId" Text="UserId"/>
+            <TextBlock Grid.Row="0" Grid.Column="1" x:Name="TxtStoreId" Text="StoreId"/>
             <StackPanel  Grid.Row="1" Grid.Column="1" Orientation="Horizontal" mah:ScrollViewerHelper.IsHorizontalScrollWheelEnabled="True">
-                <TextBox x:Name="TxtUserIdentityNumber" Margin="3" Width="200" Text="Test" FontSize="14" />
-                <TextBlock x:Name="LblUserIdentityNumber" Text="ErroMessage" Foreground="Orange"/>
+                <TextBox x:Name="TxtStoreName" Margin="3" Width="200" Text="Test" FontSize="14" LostFocus="TxtStoreName_LostFocus" />
+                <TextBlock x:Name="LblStoreName" Text="ErroMessage" Foreground="Orange"/>
             </StackPanel>
             
             <StackPanel  Grid.Row="2" Grid.Column="1" Orientation="Horizontal" mah:ScrollViewerHelper.IsHorizontalScrollWheelEnabled="True">
-                <TextBox x:Name="TxtUserSurName" Margin="3" Width="200" FontSize="14" />
-                <TextBlock x:Name="LblUserSurName" Text="ErroMessage" Foreground="Orange"/>
+                <TextBox x:Name="TxtStoreLocation" Margin="3" Width="200" FontSize="14" LostFocus="TxtStoreLocation_LostFocus" />
+                <TextBlock x:Name="LblStoreLocation" Text="ErroMessage" Foreground="Orange"/>
             </StackPanel>
 
             
