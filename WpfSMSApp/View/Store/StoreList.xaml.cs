@@ -40,14 +40,12 @@ namespace WpfSMSApp.View.Store
                 //Store 테이블 데이터 읽어와야 함.
                 List<Model.Store> stores = new List<Model.Store>();
                 List<Model.StockStores> stockstores = new List<Model.StockStores>();
-                List<Model.Stock> stocks = new List<Model.Stock>();//여기서 실수함. 참조읽을 거를 잘못 함. 복붙하고 참조를 자꾸 잘못한다.
                 stores = Logic.DataAccess.GetStores();//수영 1
-                stocks = Logic.DataAccess.GetStocks();
 
                 //stores 데이터를 stockStores로 복사
                 foreach (Model.Store item in stores)
                 {
-                    stockstores.Add(new Model.StockStores()
+                    var store = new Model.StockStores()
                     {
                         StoreID = item.StoreID,
                         StoreName = item.StoreName,
@@ -56,7 +54,7 @@ namespace WpfSMSApp.View.Store
                         TagID = item.TagID,
                         BarcodeID = item.BarcodeID,
                         StocksQuantity = 0
-                    });
+                    };
                 }
                 this.DataContext = stockstores;
             }
@@ -71,7 +69,7 @@ namespace WpfSMSApp.View.Store
         {
             try
             {
-                //NavigationService.Navigate(new UserList());//이거 아닌데? MyAccount에서 시스템 자원 새로 할당하는 건데? 뭐지? // 답은 내가 View의 Account에서 생성하지 않고 프로젝트 영역에 cs를 생성해서 그렇다.
+                //NavigationService.Navigate(new UserList());//이거 아닌데? MyAccount에서 시스템 자원 새로 할당하는 건데? 뭐지? // 답은 내가 View의 Account에서 생성하지 않고 프로젝트 영역에 cs를 생성해서 그렇다. 페이지 뺸 거 부터 고쳐서 나가야함.
                 //사소한 실수가 네임스페이스를 다 꼬이게 만들 수 있어..
             }
             catch (Exception ex)
@@ -232,31 +230,34 @@ namespace WpfSMSApp.View.Store
                     cell.SetCellValue("순번");
                     cell = rowHeader.CreateCell(1);
                     cell.SetCellValue("창고명");
-                    cell = rowHeader.CreateCell(3);
+                    cell = rowHeader.CreateCell(2);
                     cell.SetCellValue("창고위치");
                     cell = rowHeader.CreateCell(3);
                     cell.SetCellValue("재고수");
 
-                    //요거는 페이지 로드 부분 고쳐야 나옴
-             /*       for (int i = 0; i < GrdData.Items.Count; i++)
+                    //요거는 페이지 로드 부분 고쳐야 나옴 놓친 부분이 있어서 고쳐야함.
+                    for (int i = 0; i < GrdData.Items.Count; i++)
                     {
-                        IRow row = sheet.CreateRow(i + 1);//
-                        var store = GrdData.Items[i] as Model.StockStore;//이거 고쳐야 함.
-                        ICell datacell = row.CreateCell(0);
-                        datacell.SetCellValue(stockStore.StoreID);
-                        ICell datacell = row.CreateCell(1);
-                        datacell.SetCellValue(stockStore.StoreName);
-                        ICell datacell = row.CreateCell(2);
-                        datacell.SetCellValue(stockStore.StoreLocation);
-                        ICell datacell = row.CreateCell(3);
-                        datacell.SetCellValue(stockStore.StockQuantity);
-                    }*/
-                    //파일저장
-                    using (var fs = new FileStream(dialog.FileName, FileMode.OpenOrCreate, FileAccess.Write))//디버그 잡아서 마우스 올려보면 매개변수에 데이터가 스택이 되었는 지 알 수 있다. 평상시 유저에게는 FileName으로 인지되지만 컴파일러는 경로로 인식함을 알 수 있따다.
-                    {
-                        workbook.Write(fs);
+                        IRow row = sheet.CreateRow(i + 1); // 
+                        if (GrdData.Items[i] is Model.StockStores)
+                        {
+                            var stockStore = GrdData.Items[i] as Model.StockStores;
+                            ICell dataCell = row.CreateCell(0);
+                            dataCell.SetCellValue(stockStore.StoreID);
+                            dataCell = row.CreateCell(1);
+                            dataCell.SetCellValue(stockStore.StoreName);
+                            dataCell = row.CreateCell(2);
+                            dataCell.SetCellValue(stockStore.StoreLocation);
+                            /*dataCell = row.CreateCell(3);
+                            dataCell.SetCellValue(stockStore.StockQuantity);*/
+                        }
+                        //파일저장
+                        using (var fs = new FileStream(dialog.FileName, FileMode.OpenOrCreate, FileAccess.Write))//디버그 잡아서 마우스 올려보면 매개변수에 데이터가 스택이 되었는 지 알 수 있다. 평상시 유저에게는 FileName으로 인지되지만 컴파일러는 경로로 인식함을 알 수 있따다.
+                        {
+                            workbook.Write(fs);
+                        }
+                        Commons.ShowMessageAsync("엑셀저장", "엑셀export 성공!");
                     }
-                    Commons.ShowMessageAsync("엑셀저장", "엑셀export 성공!");
                 }
                 catch (Exception ex)
                 {
