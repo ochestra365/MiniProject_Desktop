@@ -197,9 +197,14 @@ namespace WpfSMSApp.View.Store
 
         private void BtnEditStore_Click(object sender, RoutedEventArgs e)
         {
-
+            if (GrdData.SelectedItem == null)
+            {
+                Commons.ShowMessageAsync("참고수정", "수정할 창고를 선택하세요");
+                return;
+            }
             try
             {
+                var storeId = (GrdData.SelectedItem as Model.Store).StoreID;
                 NavigationService.Navigate(new EidtStore());
             }
             catch (Exception ex)

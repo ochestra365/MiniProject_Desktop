@@ -21,23 +21,38 @@ namespace WpfSMSApp.View.Store
     /// </summary>
     public partial class EidtStore : Page//바꿀 부분
     {
+        private int StoreID { get; set; }
+        //수정할 창고객체
+        private Model.Store CurrentStore { get; set; }//데이터 베이스의 값을 그대로 가져온다. 전역변수로써 영향을 끼치고 있으니 각 메서드마다 따로 Model에 대한 식별자를 지정해줄 필요가 없어졌다. 그래서 코딩량이 줄어들게 되었다.
         public EidtStore()//바꿀 부분
         {
             InitializeComponent();
         }
-        bool Isvalid = true;//이거 Lost Focus 되는 거임
+        /// <summary>
+        /// 추가생성자. StoreList에서 storeId를 받아옴
+        /// </summary>
+        /// <param name="storeId"></param>
+        public EidtStore(int storeId) : this()
+        {
+            StoreID = storeId;
+        }
+
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
                 LblStoreName.Visibility = LblStoreLocation.Visibility = Visibility.Hidden;//레이블을 숨기고
                 TxtStoreId.Text = TxtStoreName.Text=TxtStoreLocation.Text = "";//텍스트를 빈값으로 초기화해준다. 오류가 발생하지 않는 파트이다.
-
             try
             {
                 //Store테이블에서 내용 읽음.
+                CurrentStore = Logic.DataAccess.GetStores().Where(s => s.StoreID.Equals(StoreID)).FirstOrDefault();//First로 하게 되면 값이 없을 때, 오류가 발생하게 됨.
+                TxtStoreId.Text = CurrentStore.StoreID.ToString();
+                TxtStoreName.Text = CurrentStore.StoreName;
+                TxtStoreLocation.Text = CurrentStore.StoreLocation;
             }
             catch (Exception ex)
             {
-
+                Commons.LOGGER.Error($"EditStore.xama.cs Page_Loaded 예외발생 : {ex}");
+                Commons.ShowMessageAsync("예외","예외발생");
             }
         }
         private void BtnUpdate_Click(object sender, RoutedEventArgs e)//네이밍 잘못줬다. 그래서 이전이 수정으로 바뀜 이거 고치로면 꼬임. 이게 새이벤트 처리기로 해야 하는데 기존에 있는 걸로 클릭해서 쓰니까 오류가 발생함.
@@ -76,16 +91,15 @@ namespace WpfSMSApp.View.Store
         {
             bool isvalid = true;//지역변수-->전역변수
             LblStoreName.Visibility = LblStoreLocation.Visibility = Visibility.Hidden;//화면에 뜬 값들을 숨겨준다.
-            var store = new Model.Store();// user는 DB모델의 사용자 목록들을 가져오겠따.
             isvalid= IsValidInput();//유효성 체크-->개발자에게 필수이다.-->어디에서든 다 필요적인 것이다.
             if (isvalid)
             {
                 //MessageBox.Show("DB수정처리!")
-                store.StoreName = TxtStoreName.Text;
-                store.StoreLocation = TxtStoreLocation.Text;
+                CurrentStore.StoreName = TxtStoreName.Text;
+                CurrentStore.StoreLocation = TxtStoreLocation.Text;
                 try
                 {
-                    var result = Logic.DataAccess.SetStore(store);
+                    var result = Logic.DataAccess.SetStore(CurrentStore);
                     if (result == 0)
                     {
                         //수정 안됨
